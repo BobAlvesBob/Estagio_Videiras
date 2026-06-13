@@ -1,0 +1,13 @@
+\babel@toc {portuguese}{}\relax 
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {3.1}{\ignorespaces Estatísticas do Dataset de Palmela (estado atual)}}{9}{table.caption.8}%
+\contentsline {table}{\numberline {3.2}{\ignorespaces Classes de anotação e respetivos critérios}}{10}{table.caption.9}%
+\contentsline {table}{\numberline {3.3}{\ignorespaces Configuração de treino no Roboflow Train}}{17}{table.caption.13}%
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {4.1}{\ignorespaces Métricas do Modelo 1 no conjunto de validação (Roboflow Train)}}{19}{table.caption.14}%
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {5.1}{\ignorespaces Resultados do Modelo 1 — Dataset Espanhol (validação)}}{24}{table.caption.18}%
+\contentsline {table}{\numberline {5.2}{\ignorespaces Comparação entre os dois modelos desenvolvidos}}{26}{table.caption.20}%
+\addvspace {10\p@ }

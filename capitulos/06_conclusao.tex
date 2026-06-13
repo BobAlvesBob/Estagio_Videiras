@@ -1,0 +1,124 @@
+%==========================================================================
+% CAPÍTULO 6 — CONCLUSÃO E TRABALHOS FUTUROS
+%==========================================================================
+\chapter{Conclusão e Trabalhos Futuros}
+\label{chap:conclusao}
+
+\section{Conclusão}
+
+O presente estágio teve como objetivo investigar a viabilidade de um sistema
+de \textbf{deteção automática de gomos em videiras} utilizando técnicas de
+visão computacional e \textit{deep learning}, com vista à sua integração num
+futuro sistema robótico de poda mecanizada.
+
+Ao longo do período de estágio foram desenvolvidas duas abordagens
+complementares. O \textbf{Modelo~1}, baseado num dataset espanhol de domínio
+público, permitiu validar a \textit{pipeline} técnica e demonstrar que o
+    YOLO26 Nano é capaz de detetar gomos em condições de imagem moderadamente
+controladas. O \textbf{Modelo~2}, construído a partir de vídeos captados nas
+vinhas de Palmela, representa um esforço mais ambicioso e realista, visando
+treinar um modelo robusto em condições próximas de uma operação robótica real.
+
+Os principais resultados e contribuições do estágio são:
+
+\begin{itemize}
+  \item Construção de uma metodologia de aquisição e anotação de imagens
+    adaptada à complexidade do ambiente vitícola português;
+
+  \item Desenvolvimento de um dataset original com aproximadamente
+    \textbf{400 imagens anotadas} de vinhas da região de Palmela, com
+    quatro classes:     \textit{gomo}, \textit{sarmento}, \textit{tronco} e
+    \textit{objeto};
+
+  \item Identificação e documentação dos principais \textbf{desafios
+    técnicos} associados à deteção de gomos em cenas reais: oclusões, fundo
+    denso, variações de iluminação e alta densidade de instâncias;
+
+  \item Avaliação da adequação do \textbf{YOLO26 Nano} para esta tarefa,
+    com identificação dos seus pontos fortes (eficiência computacional,
+    facilidade de integração) e limitações (sensibilidade ao volume e
+    qualidade dos dados de treino);
+
+  \item Prova de conceito de que, com um dataset suficientemente grande e
+    diverso, um modelo de deteção de objetos pode localizar gomos e
+    sarmentos em imagens de campo com complexidade real.
+\end{itemize}
+
+É importante reconhecer que a obtenção de um modelo plenamente funcional e
+robusto para uso em sistemas robóticos reais \textbf{excede o âmbito de um
+único semestre de estágio}. A complexidade visual das imagens de Palmela,
+combinada com a necessidade de volumes de dados elevados, exige um esforço
+continuado. Contudo, as bases estabelecidas neste trabalho são um ponto de
+partida sólido e documentado para projetos de continuação.
+
+\section{Trabalhos Futuros}
+
+Com base na experiência adquirida e nas limitações identificadas, propõem-se
+as seguintes linhas de trabalho futuro:
+
+\subsection{Expansão e Diversificação do Dataset}
+
+\begin{itemize}
+  \item Aumentar o dataset de Palmela para um mínimo de \textbf{1000--2000
+    imagens anotadas}, cobrindo diferentes épocas do ano (pré-poda, pós-
+    poda, início do abrolhamento) e diferentes condições meteorológicas.
+
+  \item Incorporar imagens de outras regiões vitivinícolas portuguesas e
+    de diferentes cultivares, para aumentar a diversidade do modelo.
+
+  \item Explorar a \textbf{anotação semi-automática}: usar um modelo
+    preliminar para gerar sugestões de anotação que sejam depois revistas
+    manualmente, reduzindo o esforço por imagem.
+\end{itemize}
+
+\subsection{Arquiteturas de Modelo Mais Avançadas}
+
+\begin{itemize}
+  \item Avaliar variantes maiores do YOLO26 (Small, Medium) ou modelos da
+    geração seguinte (RT-DETR, YOLO-NAS) para determinar se o ganho
+    em desempenho justifica o custo computacional adicional.
+
+  \item Explorar a \textbf{segmentação de instâncias} (YOLO26-Seg) em vez
+    de apenas \textit{bounding boxes}, o que poderia fornecer informação
+    mais precisa sobre a geometria dos sarmentos, útil para o cálculo do
+    ponto de corte.
+
+  \item Investigar modelos baseados em \textit{transformers} para visão
+    (DETR, Grounding DINO) que possam lidar melhor com oclusões severas.
+\end{itemize}
+
+\subsection{Integração com Informação de Profundidade}
+
+A adição de uma câmera de profundidade (RGB-D) ao sistema permitiria:
+
+\begin{itemize}
+  \item Separar objetos em primeiro e segundo plano com base na distância,
+    reduzindo a confusão entre sarmentos de diferentes planos;
+
+  \item Calcular as coordenadas 3D dos gomos para guiar o braço robótico
+    ao ponto de corte preciso.
+\end{itemize}
+
+\subsection{Validação em Ambiente Real}
+
+\begin{itemize}
+  \item Integrar o modelo desenvolvido num protótipo robótico e realizar
+    testes \textit{in situ} nas vinhas de Palmela;
+
+  \item Definir métricas de desempenho operacional (taxa de gomos
+    corretamente identificados por metro linear de vinha, tempo de
+    processamento por frame).
+\end{itemize}
+
+\subsection{Técnicas de \textit{Data Augmentation} Específicas}
+
+\begin{itemize}
+  \item Explorar augmentações mais agressivas e específicas ao domínio,
+    como simulação de diferentes condições de iluminação (\textit{random
+    brightness/contrast}), adição de ruído de movimento (\textit{motion
+    blur}) e recortes de imagens densas.
+
+  \item Investigar técnicas de \textit{mosaic augmentation} e \textit{copy-
+    paste} para aumentar artificialmente a densidade de instâncias por
+    imagem.
+\end{itemize}

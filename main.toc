@@ -1,0 +1,64 @@
+\babel@toc {portuguese}{}\relax 
+\contentsline {chapter}{Agradecimentos}{ii}{chapter*.2}%
+\contentsline {chapter}{Resumo}{iii}{chapter*.3}%
+\contentsline {chapter}{Abstract}{v}{chapter*.4}%
+\contentsline {chapter}{\numberline {1}Introdução}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Contextualização}{1}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Motivação}{1}{section.1.2}%
+\contentsline {section}{\numberline {1.3}Objetivos}{2}{section.1.3}%
+\contentsline {section}{\numberline {1.4}Estrutura do Relatório}{3}{section.1.4}%
+\contentsline {chapter}{\numberline {2}Revisão de Literatura}{4}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Visão Computacional e Agricultura de Precisão}{4}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Deteção de Objetos com Redes Neuronais Profundas}{4}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Evolução dos Modelos de Deteção}{4}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.2}A Família YOLO e o YOLO26}{5}{subsection.2.2.2}%
+\contentsline {section}{\numberline {2.3}Aplicações em Viticultura}{5}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}Deteção de Uvas e Cachos}{5}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}Deteção de Sarmentos e Estrutura da Planta}{6}{subsection.2.3.2}%
+\contentsline {subsection}{\numberline {2.3.3}Deteção de Gomos}{6}{subsection.2.3.3}%
+\contentsline {section}{\numberline {2.4}Plataformas de Anotação de Dados}{6}{section.2.4}%
+\contentsline {section}{\numberline {2.5}Desafios em Ambientes Vitícolas Reais}{7}{section.2.5}%
+\contentsline {chapter}{\numberline {3}Metodologia}{8}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Visão Geral da Pipeline}{8}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Aquisição de Dados}{8}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Dataset Modelo 1 — Origem Espanhola}{8}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}Dataset Modelo 2 — Vinhas de Palmela}{9}{subsection.3.2.2}%
+\contentsline {section}{\numberline {3.3}Estratégia de Anotação}{9}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Classes e Critérios de Anotação}{9}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}Desafios da Anotação nas Imagens de Palmela}{10}{subsection.3.3.2}%
+\contentsline {section}{\numberline {3.4}Arquitetura do Sistema}{13}{section.3.4}%
+\contentsline {subsection}{\numberline {3.4.1}Modelo: YOLO26 Nano}{13}{subsection.3.4.1}%
+\contentsline {subsection}{\numberline {3.4.2}Configuração do Dataset — \texttt {data.yaml}}{16}{subsection.3.4.2}%
+\contentsline {subsection}{\numberline {3.4.3}Scripts de Download Automatizado}{16}{subsection.3.4.3}%
+\contentsline {section}{\numberline {3.5}Procedimento de Treino}{16}{section.3.5}%
+\contentsline {chapter}{\numberline {4}Desenvolvimento}{18}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Modelo 1 — Dataset Espanhol}{18}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Caracterização do Dataset}{18}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}Refinamento das Etiquetas}{18}{subsection.4.1.2}%
+\contentsline {subsection}{\numberline {4.1.3}Resultados do Modelo 1}{18}{subsection.4.1.3}%
+\contentsline {section}{\numberline {4.2}Modelo 2 — Dataset de Palmela}{19}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Justificação e Contexto}{19}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Processo de Captação de Vídeo}{20}{subsection.4.2.2}%
+\contentsline {subsection}{\numberline {4.2.3}Importação e Extração de Frames no Roboflow}{20}{subsection.4.2.3}%
+\contentsline {subsection}{\numberline {4.2.4}Evolução da Estratégia de Anotação}{20}{subsection.4.2.4}%
+\contentsline {subsection}{\numberline {4.2.5}Dificuldades Específicas e Decisões Tomadas}{20}{subsection.4.2.5}%
+\contentsline {paragraph}{Densidade de instâncias por imagem.}{20}{section*.15}%
+\contentsline {paragraph}{Ambiguidade de fronteiras entre classes.}{21}{section*.16}%
+\contentsline {paragraph}{Gomos muito pequenos.}{21}{section*.17}%
+\contentsline {subsection}{\numberline {4.2.6}Estado Atual da Anotação}{21}{subsection.4.2.6}%
+\contentsline {section}{\numberline {4.3}Considerações sobre a Complexidade do Problema}{21}{section.4.3}%
+\contentsline {chapter}{\numberline {5}Resultados Parciais}{23}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Nota Preliminar}{23}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Métricas de Avaliação}{23}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Resultados do Modelo 1 — Dataset Espanhol}{24}{section.5.3}%
+\contentsline {section}{\numberline {5.4}Estado do Modelo 2 — Dataset de Palmela}{24}{section.5.4}%
+\contentsline {section}{\numberline {5.5}Análise das Dificuldades Observadas}{25}{section.5.5}%
+\contentsline {section}{\numberline {5.6}Comparação entre os Dois Modelos}{25}{section.5.6}%
+\contentsline {chapter}{\numberline {6}Conclusão e Trabalhos Futuros}{27}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Conclusão}{27}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Trabalhos Futuros}{28}{section.6.2}%
+\contentsline {subsection}{\numberline {6.2.1}Expansão e Diversificação do Dataset}{28}{subsection.6.2.1}%
+\contentsline {subsection}{\numberline {6.2.2}Arquiteturas de Modelo Mais Avançadas}{28}{subsection.6.2.2}%
+\contentsline {subsection}{\numberline {6.2.3}Integração com Informação de Profundidade}{29}{subsection.6.2.3}%
+\contentsline {subsection}{\numberline {6.2.4}Validação em Ambiente Real}{29}{subsection.6.2.4}%
+\contentsline {subsection}{\numberline {6.2.5}Técnicas de \textit {Data Augmentation} Específicas}{29}{subsection.6.2.5}%

@@ -1,0 +1,98 @@
+%==========================================================================
+% RESUMO (Português)
+%==========================================================================
+\chapter*{Resumo}
+\addcontentsline{toc}{chapter}{Resumo}
+
+A viticultura é uma das atividades agrícolas com maior relevância económica em
+Portugal e na Europa. A identificação precisa dos gomos nas videiras é uma
+etapa fundamental para a estimativa da produção e para a realização da poda
+mecanizada — tarefa que, se automatizada, pode reduzir significativamente os
+custos operacionais e a dependência de mão de obra especializada.
+
+O presente relatório descreve o trabalho desenvolvido durante o estágio
+curricular realizado no \textbf{Instituto Politécnico de Bragança (IPB)}, no
+âmbito do \textbf{Centro de Investigação em Digitalização e Robótica
+Inteligente (CEDRI)}, entre março e julho de 2026. O tema central é a
+\textbf{deteção e classificação automática de gomos em videiras} utilizando
+técnicas de visão computacional e aprendizagem profunda (\textit{deep
+learning}).
+
+Durante o estágio foram desenvolvidas duas abordagens complementares. A
+primeira baseou-se num dataset público de origem espanhola, que forneceu uma
+base de treino com maior qualidade inicial de anotação. A segunda abordagem,
+e mais desafiante, utilizou imagens retiradas de vídeos captados nas vinhas
+de Palmela, em condições próximas de um sistema robótico real de corte.
+Estas imagens apresentam elevada complexidade visual, com oclusões, planos
+de fundo densos (outras videiras, árvores, postes e arames), múltiplos
+elementos em cena e variações de iluminação. Para lidar com essa complexidade,
+foram anotadas quatro classes de objetos: \textit{gomos}, \textit{sarmentos},
+\textit{troncos} e \textit{objetos} (arames, postes e outros elementos).
+
+O modelo de deteção selecionado foi o \textbf{YOLO26 Nano}~\cite{hidayatullah2026yolo26},
+pela sua eficiência computacional, inferência \textit{NMS-free} e adequação a sistemas
+embebidos. O processo de anotação foi realizado na plataforma
+\textbf{Roboflow}, tendo sido processadas aproximadamente 400~imagens até ao
+momento da elaboração deste relatório, com previsão de expansão do dataset.
+
+Os resultados obtidos até à data demonstram que é possível detetar gomos em
+condições controladas, mas evidenciam também que a complexidade das cenas
+reais exige um esforço de dados e modelação considerável, superior ao que pode
+ser alcançado num único semestre. As lições aprendidas e os resultados
+preliminares constituem, contudo, uma base sólida para trabalhos futuros de
+maior escala.
+
+\vspace{1em}
+\noindent\textbf{Palavras-chave:} visão computacional, \textit{deep learning},
+YOLO26, deteção de objetos, viticultura, gomos, poda mecanizada, Roboflow.
+
+\clearpage
+
+%==========================================================================
+% ABSTRACT (Inglês)
+%==========================================================================
+\chapter*{Abstract}
+\addcontentsline{toc}{chapter}{Abstract}
+
+Viticulture is one of the most economically significant agricultural activities
+in Portugal and across Europe. The accurate identification of buds on
+grapevines is a critical step for yield estimation and mechanised pruning —
+a task that, if automated, can substantially reduce operational costs and
+reliance on skilled labour.
+
+This report describes the work carried out during a curricular internship at
+the \textbf{Polytechnic Institute of Bragança (IPB)}, within the \textbf{Research
+Centre in Digitalization and Intelligent Robotics (CEDRI)}, from March to
+July 2026. The central theme is the \textbf{automatic detection and
+classification of buds on grapevines} using computer vision and deep learning
+techniques.
+
+Two complementary approaches were developed during the internship. The first
+was based on a publicly available Spanish dataset, providing an initial
+training base with higher annotation quality. The second, more challenging
+approach used frames extracted from videos captured in the vineyards of
+Palmela, under conditions close to those of a real robotic pruning system.
+These images exhibit high visual complexity, including occlusions, dense
+backgrounds (other vines, trees, poles and wires), multiple elements in the
+scene and lighting variations. To handle this complexity, four object classes
+were annotated: \textit{buds}, \textit{canes (sarmentos)}, \textit{trunks}
+and \textit{objects} (wires, poles and other structural elements).
+
+The selected detection model was \textbf{YOLO26 Nano}~\cite{hidayatullah2026yolo26},
+chosen for its computational efficiency, NMS-free inference and suitability for embedded systems.
+Annotation was performed on the \textbf{Roboflow} platform; approximately
+400~images had been processed by the time this report was written, with
+dataset expansion planned.
+
+Results obtained to date demonstrate that bud detection is feasible under
+controlled conditions, while also highlighting that the complexity of
+real-world scenes requires a data collection and modelling effort beyond
+what can be accomplished in a single semester. Nevertheless, the lessons
+learned and preliminary results provide a solid foundation for future,
+larger-scale work.
+
+\vspace{1em}
+\noindent\textbf{Keywords:} computer vision, deep learning, YOLO26, object
+detection, viticulture, buds, mechanised pruning, Roboflow.
+
+\clearpage

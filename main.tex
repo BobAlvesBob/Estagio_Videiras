@@ -1,0 +1,145 @@
+%==========================================================================
+% Relatório de Estágio - IPB / CEDRI
+% Tema: Deteção e Classificação Automática de Gomos em Videiras
+%       utilizando Visão Computacional e Deep Learning
+% Estagiário: Robson Alexander Alves
+%==========================================================================
+
+\documentclass[12pt, a4paper, oneside]{report}
+
+% --- Codificação e Língua ---
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[portuguese]{babel}
+
+% --- Fontes e Tipografia ---
+\usepackage{lmodern}
+\usepackage{microtype}
+
+% --- Layout da Página ---
+\usepackage[
+  top=3cm, bottom=2.5cm,
+  left=3cm, right=2.5cm
+]{geometry}
+\usepackage{setspace}
+\onehalfspacing
+
+% --- Cabeçalhos e Rodapés ---
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\nouppercase{\leftmark}}
+\fancyhead[R]{\small IPB / CEDRI}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+% --- Gráficos e Figuras ---
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage[table,xcdraw]{xcolor}
+
+% --- Tabelas ---
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage{multirow}
+
+% --- Matemática ---
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+% --- Listas e Enumerações ---
+\usepackage{enumitem}
+
+% --- Código Fonte ---
+\usepackage{listings}
+
+% Definição manual da linguagem YAML para listings
+\lstdefinelanguage{yaml}{
+  keywords={true,false,null,yes,no},
+  keywordstyle=\color{blue}\bfseries,
+  basicstyle=\ttfamily\small,
+  sensitive=false,
+  comment=[l]{\#},
+  commentstyle=\color{gray}\itshape,
+  stringstyle=\color{teal},
+  morestring=[b]',
+  morestring=[b]"
+}
+
+\lstset{
+  basicstyle=\ttfamily\small,
+  breaklines=true,
+  frame=single,
+  captionpos=b,
+  numbers=left,
+  numberstyle=\tiny,
+  keywordstyle=\color{blue},
+  commentstyle=\color{gray},
+  stringstyle=\color{teal},
+  showstringspaces=false,
+  language=Python
+}
+
+% --- Hiperlinks ---
+\usepackage[
+  colorlinks=true,
+  linkcolor=blue!60!black,
+  citecolor=green!50!black,
+  urlcolor=blue!70!black,
+  pdftitle={Relatório de Estágio - Deteção de Gomos em Videiras},
+  pdfauthor={Robson Alexander Alves}
+]{hyperref}
+
+% --- Referências ---
+\usepackage[backend=biber, style=numeric, sorting=nyt]{biblatex}
+\addbibresource{referencias.bib}
+
+% --- Outros ---
+\usepackage{csquotes}
+\usepackage{lipsum}   % texto provisório; remova quando concluído
+\usepackage{pdfpages} % para incluir PDFs externos, se necessário
+
+%==========================================================================
+\begin{document}
+%==========================================================================
+
+% ---- CAPA ----------------------------------------------------------------
+\include{capitulos/00_capa}
+
+% ---- PRÉ-TEXTUAIS --------------------------------------------------------
+\pagenumbering{roman}
+\setcounter{page}{2}
+
+\include{capitulos/00b_agradecimentos}
+\include{capitulos/00c_resumo}
+% Abstract já incluído no final de 00c_resumo.tex
+
+% Listas automáticas
+\tableofcontents
+\listoffigures
+\listoftables
+\newpage
+
+% ---- TEXTUAIS ------------------------------------------------------------
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+\include{capitulos/01_introducao}
+\include{capitulos/02_revisao_literatura}
+\include{capitulos/03_metodologia}
+\include{capitulos/04_desenvolvimento}
+\include{capitulos/05_resultados}
+\include{capitulos/06_conclusao}
+
+% ---- PÓS-TEXTUAIS --------------------------------------------------------
+\printbibliography[heading=bibintoc, title={Referências Bibliográficas}]
+
+%\appendix
+%\include{capitulos/A_apendice}
+
+%==========================================================================
+\end{document}
+%==========================================================================

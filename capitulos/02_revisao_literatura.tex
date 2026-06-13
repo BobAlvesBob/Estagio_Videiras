@@ -1,0 +1,153 @@
+%==========================================================================
+% CAPÍTULO 2 — REVISÃO DE LITERATURA
+%==========================================================================
+\chapter{Revisão de Literatura}
+\label{chap:revisao}
+
+\section{Visão Computacional e Agricultura de Precisão}
+
+A visão computacional é um ramo da inteligência artificial que visa dotar
+sistemas computacionais da capacidade de interpretar e compreender informação
+visual proveniente do mundo real. Nas últimas décadas, os avanços em redes
+neuronais profundas (\textit{deep neural networks}) transformaram profundamente
+o estado da arte nesta área, permitindo alcançar níveis de desempenho
+comparáveis ou superiores ao humano em diversas tarefas de reconhecimento e
+deteção de objetos~\cite{lecun2015deep}.
+
+No contexto da \textbf{agricultura de precisão}, a visão computacional tem
+sido aplicada a um conjunto diversificado de problemas: deteção de pragas e
+doenças em folhas~\cite{mohanty2016plant}, estimativa do estado de maturação
+de frutos~\cite{sa2016deepfruits}, mapeamento de culturas por drones e
+contagem de plantas~\cite{osco2021review}. A viticultura, em particular, tem
+atraído crescente atenção da comunidade científica, dado o valor económico da
+cultura e a complexidade visual do ambiente de vinha.
+
+\section{Deteção de Objetos com Redes Neuronais Profundas}
+
+\subsection{Evolução dos Modelos de Deteção}
+
+Os modelos modernos de deteção de objetos podem ser classificados em duas
+grandes famílias:
+
+\begin{itemize}
+  \item \textbf{Modelos em dois estágios} (\textit{two-stage detectors}):
+    Como o Faster R-CNN~\cite{ren2015faster}, que primeiro gera propostas de
+    regiões e depois as classifica. Tendem a apresentar maior precisão, mas
+    com latência mais elevada.
+
+  \item \textbf{Modelos em um estágio} (\textit{single-stage detectors}):
+    Como a família YOLO (\textit{You Only Look Once})~\cite{redmon2016you} e
+    o SSD~\cite{liu2016ssd}, que realizam a deteção numa única passagem pela
+    rede. São mais rápidos e adequados a aplicações em tempo real.
+\end{itemize}
+
+Para sistemas embebidos e robóticos, os modelos de um estágio são
+preferíveis devido ao menor custo computacional.
+
+\subsection{A Família YOLO e o YOLO26}
+
+A arquitetura YOLO foi introduzida por Redmon \textit{et al.}~\cite{redmon2016you}
+e tem sido continuamente aprimorada. O \textbf{YOLOv8}, desenvolvido pela
+Ultralytics~\cite{jocher2023ultralytics}, representou um marco importante,
+com melhorias na arquitetura do \textit{backbone}, do \textit{neck} e da
+cabeça de deteção (\textit{detection head}).
+
+O \textbf{YOLO26}~\cite{hidayatullah2026yolo26}, versão mais recente da
+família, introduz avanços significativos sobre o YOLOv8:
+
+\begin{itemize}
+  \item Eliminação da \textit{Distribution Focal Loss} (DFL) e adoção de
+    inferência \textit{End-to-End NMS-Free}, reduzindo a latência em 43\%
+    no modo CPU;
+  \item Introdução do \textbf{STAL} (\textit{Small-Target-Aware Label
+    Assignment}), que corrige a sub-atribuição de objetos com dimensão
+    inferior a 8$\times$8~px — especialmente relevante para a deteção de
+    gomos;
+  \item Bloco de atenção \textbf{PSABlock} no \textit{neck}, melhorando
+    a representação de características sem custo computacional elevado;
+  \item Otimizador \textbf{MuSGD}, que combina SGD com atualizações
+    estilo Muon, melhorando a convergência.
+\end{itemize}
+
+A variante \textbf{YOLO26 Nano} é a mais leve da família, adequada para
+execução em tempo real em hardware com recursos limitados, como sistemas
+robóticos de campo. O modelo retorna, para cada objeto detetado, uma
+\textit{bounding box}, uma classe e um valor de confiança.
+
+\section{Aplicações em Viticultura}
+
+\subsection{Deteção de Uvas e Cachos}
+
+Vários trabalhos têm abordado a deteção de uvas e cachos em imagens de
+campo. Santos~\textit{et al.}~\cite{santos2020grape} e Nuske~\textit{et
+al.}~\cite{nuske2011estimating} utilizaram visão computacional para estimar
+o rendimento das vinhas através da contagem de cachos. A complexidade das
+oclusões e a variabilidade de cor entre cultivares são apontadas como os
+principais desafios.
+
+\subsection{Deteção de Sarmentos e Estrutura da Planta}
+
+A identificação da estrutura esquelética da videira — tronco, cordões e
+sarmentos — é uma etapa anterior à localização dos gomos e tem sido explorada
+por Kicherer~\textit{et al.}~\cite{kicherer2015automatic} e Majeed~\textit{et
+al.}~\cite{majeed2020deep}. Estes trabalhos demonstram que a segmentação ou
+deteção dos elementos estruturais melhora a robustez da localização dos
+pontos de corte.
+
+\subsection{Deteção de Gomos}
+
+A deteção específica de gomos (\textit{buds}) é uma tarefa de menor dimensão
+aparente, mas de alta dificuldade, dado que os gomos têm dimensão reduzida
+e podem apresentar-se parcialmente oclusos por folhas ou outros sarmentos.
+Botterill~\textit{et al.}~\cite{botterill2017robot} desenvolveram um sistema
+robótico de poda que inclui deteção de gomos com câmeras RGB e de
+profundidade. Aquino~\textit{et al.}~\cite{aquino2018vitisberry} focaram-se
+em cultivares espanholas e obtiveram resultados promissores com redes
+convolucionais.
+
+\section{Plataformas de Anotação de Dados}
+
+A qualidade e consistência das anotações são determinantes para o desempenho
+de modelos supervisionados. A plataforma \textbf{Roboflow}~\cite{roboflow2020}
+tem emergido como uma das ferramentas mais completas para:
+
+\begin{itemize}
+  \item Anotação manual de \textit{bounding boxes} e polígonos;
+  \item Aplicação de técnicas de \textit{data augmentation} (rotação, flip,
+    ajuste de brilho, corte, mosaico);
+  \item Exportação de datasets nos formatos suportados pelos principais
+    frameworks (YOLO, COCO, Pascal VOC);
+  \item Gestão de versões de dataset e colaboração em equipa.
+\end{itemize}
+
+A existência de datasets públicos na plataforma, incluindo conjuntos
+provenientes de Espanha e de outros países produtores de vinho, facilita a
+aplicação de \textit{transfer learning} e a expansão de dados de treino.
+
+\section{Desafios em Ambientes Vitícolas Reais}
+
+A literatura aponta de forma recorrente um conjunto de desafios específicos
+ao ambiente de vinha que dificultam a deteção robusta de objetos:
+
+\begin{description}
+  \item[Oclusão e sobreposição:] Os sarmentos de diferentes plantas cruzam-se
+    frequentemente, e os gomos podem ficar parcialmente ocultos por outros
+    elementos da planta ou por vegetação de fundo.
+
+  \item[Variações de iluminação:] A luz solar direta, a sombra projetada
+    pelos sarmentos e as mudanças ao longo do dia afetam significativamente
+    a aparência visual dos gomos e sarmentos.
+
+  \item[Fundo complexo:] Em vinhas alinhadas, o fundo de uma imagem de um
+    sarmento em primeiro plano inclui tipicamente outros sarmentos, folhas e
+    estruturas de suporte, tornando difícil a distinção entre objetos de
+    interesse e contexto.
+
+  \item[Variabilidade morfológica:] As dimensões, formas e aspetos dos gomos
+    variam consideravelmente entre cultivares, fases de crescimento e
+    condições de stresse hídrico.
+\end{description}
+
+Estes desafios motivam a necessidade de recolher imagens em condições reais
+e de construir datasets com grande diversidade, como descrito no presente
+trabalho.

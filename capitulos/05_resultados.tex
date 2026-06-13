@@ -1,0 +1,159 @@
+%==========================================================================
+% CAPÍTULO 5 — RESULTADOS PARCIAIS
+%==========================================================================
+\chapter{Resultados Parciais}
+\label{chap:resultados}
+
+\section{Nota Preliminar}
+
+O presente capítulo reporta os resultados obtidos até à data de elaboração
+deste relatório. O trabalho encontra-se em curso, e os resultados
+definitivos do Modelo~2 (dataset de Palmela) serão integrados numa versão
+atualizada do relatório após a conclusão das fases de anotação e treino.
+
+\section{Métricas de Avaliação}
+
+Para avaliar o desempenho dos modelos, são utilizadas as seguintes métricas
+padrão na literatura de deteção de objetos:
+
+\begin{description}
+  \item[Precisão (P):] Fração das deteções positivas que são corretas.
+    \[
+      P = \frac{TP}{TP + FP}
+    \]
+
+  \item[Recall (R):] Fração dos objetos reais que foram detetados.
+    \[
+      R = \frac{TP}{TP + FN}
+    \]
+
+  \item[F1-Score:] Média harmónica entre Precisão e Recall.
+    \[
+      F1 = 2 \cdot \frac{P \cdot R}{P + R}
+    \]
+
+  \item[mAP@50:] \textit{Mean Average Precision} com limiar de IoU de 0,50.
+    Métrica principal utilizada para comparação de modelos na literatura.
+
+  \item[mAP@50-95:] Média do mAP calculado para limiares de IoU de 0,50
+    a 0,95 (em passos de 0,05). Métrica mais exigente, adotada no COCO
+    \textit{benchmark}.
+\end{description}
+
+\noindent onde $TP$ = Verdadeiros Positivos, $FP$ = Falsos Positivos,
+$FN$ = Falsos Negativos.
+
+\section{Resultados do Modelo 1 — Dataset Espanhol}
+
+A Tabela~\ref{tab:resultados_m1} apresenta as métricas obtidas pelo Modelo~1
+no conjunto de validação após treino na plataforma Roboflow Train.
+
+\begin{table}[H]
+  \centering
+  \caption{Resultados do Modelo 1 — Dataset Espanhol (validação)}
+  \label{tab:resultados_m1}
+  \begin{tabular}{lcccc}
+    \toprule
+    \textbf{Classe}    & \textbf{P} & \textbf{R} & \textbf{F1} & \textbf{mAP@50} \\
+    \midrule
+    Todas (global)     & 54,3\%     & 52,7\%     & 53,5\%      & 48,8\%          \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\noindent\textit{Nota: O Roboflow Train, no plano gratuito, reporta apenas
+métricas globais no painel principal. Os valores por classe estão disponíveis
+nas ferramentas de avaliação avançada (plano pago).}
+
+Um mAP@50 de \textbf{48,8\%} é um resultado modesto mas esperado para um
+primeiro treino exploratório. A precisão (54,3\%) e o recall (52,7\%)
+equilibrados indicam que o modelo não está enviesado para falsos positivos
+nem para falsos negativos. A principal limitação reside na heterogeneidade
+entre o domínio do dataset espanhol e as condições das vinhas portuguesas.
+
+\section{Estado do Modelo 2 — Dataset de Palmela}
+
+O Modelo~2 encontra-se em fase de construção ativa do dataset. Até ao
+momento, foram anotadas aproximadamente \textbf{100 imagens} provenientes
+dos vídeos captados nas vinhas de Palmela, combinadas com as \textbf{300
+imagens} do dataset espanhol, perfazendo um total de \textbf{400 imagens}.
+
+As primeiras execuções de treino exploratório — realizadas com versões
+preliminares do dataset (menos de 200 imagens) — permitiram obter as
+seguintes observações qualitativas:
+
+\begin{itemize}
+  \item O modelo identifica corretamente os sarmentos em imagens com fundo
+    relativamente limpo, mas apresenta dificuldades quando o fundo contém
+    outras videiras ou arames.
+
+  \item A deteção de gomos em imagens de alta densidade apresenta
+    \textit{recall} reduzido, com muitos gomos não detetados, o que é
+    consistente com o tamanho reduzido das instâncias e o volume ainda
+    limitado de dados de treino.
+
+  \item A inclusão das classes \texttt{tronco} e \texttt{objeto} reduziu
+    visivelmente o número de falsos positivos nestas categorias de elementos.
+
+  \item A semelhança visual entre sarmentos de primeiro plano e elementos de
+    fundo continua a ser a principal fonte de confusão do modelo.
+\end{itemize}
+
+Estes resultados são preliminares e devem ser interpretados com cautela,
+dado o tamanho reduzido do dataset utilizado nestas primeiras avaliações.
+
+\section{Análise das Dificuldades Observadas}
+
+A Figura~\ref{fig:dificuldades} ilustra três categorias de erros típicos
+observados nas primeiras inferências do Modelo~2:
+
+\begin{figure}[H]
+  \centering
+  \begin{subfigure}[b]{0.30\textwidth}
+    \fbox{\parbox{\textwidth}{\centering\vspace{1.5cm}
+      [Falso positivo: objeto confundido com sarmento]
+      \vspace{1.5cm}}}
+    \caption{Falso positivo (objeto)}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[b]{0.30\textwidth}
+    \fbox{\parbox{\textwidth}{\centering\vspace{1.5cm}
+      [Falso negativo: gomo não detetado por oclusão]
+      \vspace{1.5cm}}}
+    \caption{Falso negativo (gomo ocluído)}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[b]{0.30\textwidth}
+    \fbox{\parbox{\textwidth}{\centering\vspace{1.5cm}
+      [Deteção correta: gomo e sarmento identificados]
+      \vspace{1.5cm}}}
+    \caption{Deteção correta}
+  \end{subfigure}
+  \caption{Exemplos de erros típicos e deteção correta no Modelo~2
+           (imagens a inserir após conclusão do treino final).}
+  \label{fig:dificuldades}
+\end{figure}
+
+\section{Comparação entre os Dois Modelos}
+
+A Tabela~\ref{tab:comparacao_modelos} resume as diferenças fundamentais
+entre as duas abordagens desenvolvidas neste estágio.
+
+\begin{table}[H]
+  \centering
+  \caption{Comparação entre os dois modelos desenvolvidos}
+  \label{tab:comparacao_modelos}
+  \begin{tabularx}{\textwidth}{l X X}
+    \toprule
+    \textbf{Aspeto}          & \textbf{Modelo 1 (Espanhol)} & \textbf{Modelo 2 (Palmela)} \\
+    \midrule
+    Origem dos dados         & Dataset público Roboflow     & Vídeo captado em campo \\
+    Complexidade das imagens & Moderada                     & Alta \\
+    N.º de classes           & 1--2                         & 4 \\
+    Imagens anotadas         & 300 (dataset espanhol + gomos adicionados) & 400 (300 espanhol + 100 Palmela, em curso) \\
+    Fundo das imagens        & Relativamente limpo          & Denso, com múltiplos planos \\
+    Aplicabilidade real      & Limitada                     & Alta (cenário real de robô) \\
+    Estado                   & Completo                     & Em desenvolvimento \\
+    \bottomrule
+  \end{tabularx}
+\end{table}

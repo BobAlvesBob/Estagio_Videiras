@@ -1,0 +1,11 @@
+\babel@toc {portuguese}{}\relax 
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Exemplo de imagem das vinhas de Palmela antes e após anotação manual, ilustrando a elevada densidade de instâncias por frame.}}{12}{figure.caption.10}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Distribuição do número de instâncias anotadas por classe na imagem de exemplo.}}{13}{figure.caption.11}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Diagrama de arquitetura do YOLO26 Nano: Backbone (C3k2 + SPPF com atalho residual), Neck (C2PSA com PSABlock de atenção) e três cabeças de deteção (\textit {small}, \textit {medium}, \textit {large}). Fonte:~\blx@tocontentsinit {0}\cite {hidayatullah2026yolo26}.}}{15}{figure.caption.12}%
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Exemplos de erros típicos e deteção correta no Modelo~2 (imagens a inserir após conclusão do treino final).}}{25}{figure.caption.19}%
+\addvspace {10\p@ }

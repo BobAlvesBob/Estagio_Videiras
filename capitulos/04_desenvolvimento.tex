@@ -1,0 +1,190 @@
+%==========================================================================
+% CAPÍTULO 4 — DESENVOLVIMENTO
+%==========================================================================
+\chapter{Desenvolvimento}
+\label{chap:desenvolvimento}
+
+\section{Modelo 1 — Dataset Espanhol}
+
+\subsection{Caracterização do Dataset}
+
+O primeiro modelo foi desenvolvido com base num dataset público de videiras
+espanholas disponível na plataforma Roboflow. Este dataset contém imagens
+de vinhas em diferentes fases fenológicas, com anotações de gomos já
+validadas pela comunidade.
+
+O processo de desenvolvimento do Modelo~1 serviu como etapa de validação
+da \textit{pipeline} técnica: verificação do fluxo de download via API,
+configuração do ambiente de treino, e familiarização com as métricas de
+avaliação do YOLOv8.
+
+\subsection{Refinamento das Etiquetas}
+
+Após uma inspeção visual inicial do dataset espanhol, foram identificadas
+algumas inconsistências nas anotações — gomos com \textit{bounding boxes}
+excessivamente largas ou com sobreposição não intencional. Procedeu-se ao
+refinamento manual de parte dessas anotações, de modo a melhorar a qualidade
+do sinal de treino.
+
+\subsection{Resultados do Modelo 1}
+
+O treino do Modelo~1 foi realizado na plataforma Roboflow Train, utilizando
+o modelo base \textbf{YOLO Nano}, sobre a versão do dataset de 20 de maio de
+2026. A Tabela~\ref{tab:resultados_m1_dev} resume as métricas obtidas no
+conjunto de validação.
+
+\begin{table}[H]
+  \centering
+  \caption{Métricas do Modelo 1 no conjunto de validação (Roboflow Train)}
+  \label{tab:resultados_m1_dev}
+  \begin{tabular}{lc}
+    \toprule
+    \textbf{Métrica}   & \textbf{Valor} \\
+    \midrule
+    mAP@50             & 48,8\% \\
+    Precisão           & 54,3\% \\
+    Recall             & 52,7\% \\
+    F1-Score           & 53,5\% \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+Os resultados obtidos são moderados, o que é consistente com as
+características do dataset: imagens de origem espanhola com condições
+visuais distintas das vinhas de Palmela, às quais se adicionaram anotações
+de gomos anteriormente em falta. A precisão de 54,3\% e o recall de 52,7\%
+indicam que o modelo tem dificuldade em generalizar para imagens de
+contextos mais complexos.
+
+A inferência visual sobre imagens do conjunto de teste revelou que o modelo
+identifica corretamente os \textbf{sarmentos} com elevada confiança (até
+97\%) e o \textbf{tronco} com boa confiança (83\%), sendo a deteção dos
+gomos mais incerta — resultado esperado dada a pequena dimensão das
+instâncias e a natureza do dataset de origem.
+
+Este modelo serve essencialmente como \textbf{validação da pipeline técnica}
+e como ponto de partida para o Modelo~2, desenvolvido sobre imagens das
+vinhas de Palmela.
+
+\section{Modelo 2 — Dataset de Palmela}
+\label{sec:modelo2}
+
+\subsection{Justificação e Contexto}
+
+O desenvolvimento do segundo modelo representa o núcleo do trabalho prático
+deste estágio. A motivação para a criação de um novo dataset, em vez de
+reutilizar integralmente o dataset espanhol, reside na diferença substancial
+entre as condições das imagens disponíveis publicamente e as condições reais
+de operação de um robô de poda nas vinhas portuguesas.
+
+As imagens do dataset espanhol foram, na sua maioria, captadas em condições
+controladas ou com planos de fundo limpos. Em contrapartida, um robô real
+que percorra as vinhas de Palmela capturará cenas com:
+
+\begin{itemize}
+  \item Múltiplas videiras visíveis em simultâneo (primeiro e segundo planos);
+  \item Arames de suporte, postes e outros elementos de infraestrutura;
+  \item Reflexos de luz solar e variações abruptas de contraste;
+  \item Sarmentos de diferentes espessuras e comprimentos que se cruzam
+    e sobrepõem no campo visual.
+\end{itemize}
+
+É precisamente esta realidade que o Modelo~2 pretende capturar.
+
+\subsection{Processo de Captação de Vídeo}
+
+Os vídeos utilizados para construir o dataset de Palmela foram captados
+durante uma visita às vinhas da região, realizada em março de 2026. A
+captação foi efetuada com câmera de smartphone em modo vídeo, percorrendo
+as fileiras de videiras a pé, de forma a simular o deslocamento de um
+robô agrícola.
+
+Para cobrir diferentes perspetivas e condições de iluminação, foram
+realizadas passagens ao longo de várias filas em diferentes horas do dia.
+A taxa de captura foi configurada em \textbf{2 frames por segundo} no
+Roboflow, o que corresponde a uma amostragem suficiente para capturar a
+diversidade visual sem criar um número excessivo de frames redundantes.
+
+\subsection{Importação e Extração de Frames no Roboflow}
+
+Os ficheiros de vídeo (formato \texttt{.mp4}) foram importados diretamente
+para o projeto no Roboflow. A plataforma realiza automaticamente a extração
+dos frames à taxa configurada e apresenta-os sequencialmente para anotação.
+Esta funcionalidade reduziu significativamente o tempo de pré-processamento
+manual dos dados.
+
+\subsection{Evolução da Estratégia de Anotação}
+
+Ao longo das sessões de anotação do dataset de Palmela, a estratégia foi
+sendo refinada com base nas dificuldades encontradas. A decisão de incluir
+as classes \texttt{tronco} e \texttt{objeto} surgiu após as primeiras experiências
+de treino revelarem que o modelo confundia estes elementos com sarmentos e
+gomos.
+
+A inclusão dos \textbf{sarmentos} como classe própria — e não apenas como
+contexto — foi igualmente determinante. Ao delimitar os sarmentos, o modelo
+adquire um guia estrutural que facilita a localização dos gomos, que crescem
+ao longo dos sarmentos em posições relativamente regulares.
+
+\subsection{Dificuldades Específicas e Decisões Tomadas}
+
+\paragraph{Densidade de instâncias por imagem.}
+Cada imagem das vinhas de Palmela pode conter dezenas de gomos visíveis.
+A anotação exaustiva de todos eles é impraticável e potencialmente prejudicial
+(anotações incompletas geram falsos negativos durante o treino). Optou-se
+por uma política de anotação \textit{best-effort}: anotar todos os gomos
+claramente visíveis e com pelo menos 50\% da área visível.
+
+\paragraph{Ambiguidade de fronteiras entre classes.}
+Em certas imagens, a distinção entre um sarmento em primeiro plano e um
+tronco em segundo plano é subjetiva. Foi adotada a regra de que a classe é
+determinada pela posição relativa ao plano focal principal: o elemento mais
+próximo da câmera é classificado pelo seu tipo real.
+
+\paragraph{Gomos muito pequenos.}
+Em imagens captadas a maior distância, os gomos aparecem com dimensões
+inferiores a 15$\times$15~px. Estes casos foram anotados quando identificáveis,
+mas reconhece-se que o modelo terá maior dificuldade em detetá-los.
+
+\subsection{Estado Atual da Anotação}
+
+Até à data de elaboração deste relatório, foram anotadas aproximadamente
+\textbf{100 imagens} provenientes das vinhas de Palmela, que foram
+combinadas com as \textbf{300 imagens} do dataset espanhol para compor o
+dataset do Modelo~2 (400 imagens no total). O trabalho de anotação das
+imagens de Palmela encontra-se ainda em curso.
+
+O dataset encontra-se versionado no Roboflow, permitindo reprodutibilidade
+dos treinos e rastreabilidade das alterações de anotação.
+
+\section{Considerações sobre a Complexidade do Problema}
+
+A experiência acumulada durante o estágio permite afirmar que a tarefa de
+deteção de gomos em cenas reais de vinha, com a complexidade visual observada
+nas imagens de Palmela, é um problema que \textbf{excede o que pode ser
+resolvido satisfatoriamente num único semestre de trabalho}. As razões são
+múltiplas:
+
+\begin{enumerate}
+  \item \textbf{Volume de dados:} Modelos de deteção de objetos em cenas
+    complexas tipicamente requerem milhares de imagens anotadas por classe.
+    Com \textbf{100 imagens de Palmela} (400 no total com as espanholas), o modelo estará limitado na sua capacidade de
+    generalização.
+
+  \item \textbf{Complexidade de anotação:} A anotação de imagens com grande
+    densidade de instâncias é demorada e exige consistência. A taxa de
+    anotação estimada é de 15--25 imagens por hora para imagens de alta
+    densidade.
+
+  \item \textbf{Variabilidade do domínio:} As condições de iluminação,
+    fenologia e morfologia variam significativamente entre épocas do ano,
+    o que implica a necessidade de múltiplas rondas de captura.
+
+  \item \textbf{Otimização do modelo:} A escolha dos hiperparâmetros e das
+    técnicas de \textit{data augmentation} adequadas ao domínio específico
+    requer múltiplas iterações de treino e avaliação.
+\end{enumerate}
+
+Não obstante, o trabalho desenvolvido até ao momento estabelece uma base
+metodológica sólida e fornece uma avaliação realista dos desafios envolvidos,
+constituindo um ponto de partida valioso para projetos de continuação.

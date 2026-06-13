@@ -1,0 +1,26 @@
+%==========================================================================
+% APÊNDICE A
+%==========================================================================
+\chapter{Apêndice — Estrutura do Projeto}
+\label{ap:scripts}
+
+\section{Estrutura de Pastas do Projeto}
+
+\begin{lstlisting}[caption={Estrutura de pastas recomendada}]
+projeto_gomos/
+├── datasets/
+│   ├── espanhol_v1/
+│   │   ├── train/images/  train/labels/
+│   │   ├── valid/images/  valid/labels/
+│   │   ├── test/images/   test/labels/
+│   │   └── data.yaml
+│   └── palmela_v1/
+│       ├── train/  valid/  test/
+│       └── data.yaml
+├── scripts/
+│   ├── download_roboflow.py
+│   ├── train.py
+│   └── infer_video.py
+├── runs/           # gerado automaticamente pelo YOLOv8
+└── relatorio/      # este relatório LaTeX
+\end{lstlisting}

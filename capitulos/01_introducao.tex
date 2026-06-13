@@ -1,0 +1,109 @@
+%==========================================================================
+% CAPÍTULO 1 — INTRODUÇÃO
+%==========================================================================
+\chapter{Introdução}
+\label{chap:introducao}
+
+\section{Contextualização}
+
+A agricultura de precisão tem beneficiado de forma crescente dos avanços em
+inteligência artificial, robótica e visão computacional. No contexto da
+viticultura, a automatização de processos como a poda e a estimativa de
+produção representa um desafio técnico relevante, com impacto direto na
+competitividade do setor e na redução de custos operacionais.
+
+A poda da videira é uma das operações culturais mais exigentes em termos de
+mão de obra. Realizada tipicamente durante o inverno e início da primavera,
+requer o reconhecimento dos sarmentos produtivos — denominados
+\textbf{sarmentos} — e a identificação dos gomos que se pretendem preservar
+para garantir a produção da safra seguinte. A realização desta tarefa de forma
+manual depende de operários experientes, sendo sujeita a variações decorrentes
+de fatores humanos. A sua mecanização exige, portanto, que sistemas robóticos
+sejam capazes de perceber e interpretar a estrutura visual complexa de uma
+videira.
+
+É neste enquadramento que surge o presente estágio, desenvolvido no
+\textbf{Instituto Politécnico de Bragança (IPB)}, no \textbf{Centro de
+Investigação em Digitalização e Robótica Inteligente (CEDRI)}, com o objetivo
+de investigar e implementar uma solução baseada em \textit{deep learning}
+para a \textbf{deteção automática de gomos em videiras}.
+
+\section{Motivação}
+
+A identificação automática e precisa de gomos numa videira constitui um pré-
+requisito para qualquer sistema de poda autónoma. Sem esta capacidade, um
+robô de poda não consegue determinar a posição de corte adequada acima de
+um gomo, o que comprometeria a integridade da planta e a produção futura.
+
+A motivação deste trabalho assenta em três eixos principais:
+
+\begin{enumerate}
+  \item \textbf{Relevância económica:} Portugal é um dos maiores produtores
+    de vinho do mundo, sendo a viticultura um pilar da economia agrícola
+    nacional. A automação de operações de poda pode traduzir-se em poupanças
+    significativas.
+
+  \item \textbf{Desafio técnico:} As videiras constituem cenários de elevada
+    complexidade visual, com sobreposição de elementos, variações de
+    iluminação e grande diversidade morfológica entre cultivares e condições
+    de crescimento.
+
+  \item \textbf{Alinhamento com investigação atual:} A área de deteção de
+    objetos em contextos agrícolas tem vindo a crescer rapidamente, com
+    modelos baseados em redes neuronais convolucionais e \textit{transformers}
+    a alcançar resultados encorajadores em tarefas relacionadas.
+\end{enumerate}
+
+\section{Objetivos}
+
+O presente estágio tem como objetivos gerais:
+
+\begin{itemize}
+  \item Recolher, processar e anotar imagens de videiras em condições
+    próximas de um cenário robótico real;
+  \item Treinar e avaliar modelos de deteção de objetos baseados em
+    \textit{deep learning} para a identificação de gomos, sarmentos,
+    troncos e outros elementos estruturais da videira;
+  \item Estabelecer uma metodologia replicável de construção de dataset e
+    de treino de modelos, adaptada às condicionantes do ambiente vitícola;
+  \item Identificar os principais desafios e limitações do problema, e
+    propor direções para trabalho futuro.
+\end{itemize}
+
+No que respeita os objetivos específicos, pretende-se:
+
+\begin{itemize}
+  \item Desenvolver e validar um modelo YOLO26 treinado sobre imagens
+    provenientes de vinhas da região de Palmela;
+  \item Avaliar a viabilidade do uso de \textit{transfer learning} a partir
+    de um dataset externo (espanhol) para acelerar a convergência do modelo;
+  \item Quantificar o esforço de anotação necessário para um desempenho
+    aceitável em cenas complexas;
+  \item Documentar a pipeline completa, desde a captura de vídeo até à
+    inferência do modelo.
+\end{itemize}
+
+\section{Estrutura do Relatório}
+
+Este relatório encontra-se organizado da seguinte forma:
+
+\begin{description}
+  \item[Capítulo~\ref{chap:revisao}] apresenta a revisão da literatura,
+    cobrindo os conceitos fundamentais de visão computacional, deteção de
+    objetos e aplicações em viticultura.
+
+  \item[Capítulo~\ref{chap:metodologia}] descreve a metodologia adotada,
+    incluindo a estratégia de captura de imagens, as ferramentas utilizadas
+    e a arquitetura do sistema.
+
+  \item[Capítulo~\ref{chap:desenvolvimento}] detalha o processo de
+    desenvolvimento, com especial ênfase na anotação de dados, na
+    configuração dos modelos e nos desafios encontrados.
+
+  \item[Capítulo~\ref{chap:resultados}] apresenta os resultados parciais
+    obtidos, com análise das métricas de desempenho e exemplos visuais de
+    deteção.
+
+  \item[Capítulo~\ref{chap:conclusao}] sintetiza as conclusões, discute as
+    limitações do trabalho e aponta perspetivas para investigação futura.
+\end{description}
