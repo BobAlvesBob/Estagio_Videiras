@@ -46,17 +46,18 @@ $FN$ = Falsos Negativos.
 \section{Resultados do Modelo 1 — Dataset Espanhol}
 
 A Tabela~\ref{tab:resultados_m1} apresenta as métricas obtidas pelo Modelo~1
-no conjunto de validação após treino na plataforma Roboflow Train.
+no conjunto de validação após treino na plataforma Roboflow Train sobre o
+dataset \textbf{Segmentation-Vineyard-2}~\cite{vinya2024segvineyard}.
 
 \begin{table}[H]
   \centering
-  \caption{Resultados do Modelo 1 — Dataset Espanhol (validação)}
+  \caption{Resultados do Modelo 1 — Segmentation-Vineyard-2 (validação)}
   \label{tab:resultados_m1}
   \begin{tabular}{lcccc}
     \toprule
     \textbf{Classe}    & \textbf{P} & \textbf{R} & \textbf{F1} & \textbf{mAP@50} \\
     \midrule
-    Todas (global)     & 54,3\%     & 52,7\%     & 53,5\%      & 48,8\%          \\
+    Todas (global)     & 76,7\%     & 61,9\%     & 68,5\%      & 67,8\%          \\
     \bottomrule
   \end{tabular}
 \end{table}
@@ -65,11 +66,12 @@ no conjunto de validação após treino na plataforma Roboflow Train.
 métricas globais no painel principal. Os valores por classe estão disponíveis
 nas ferramentas de avaliação avançada (plano pago).}
 
-Um mAP@50 de \textbf{48,8\%} é um resultado modesto mas esperado para um
-primeiro treino exploratório. A precisão (54,3\%) e o recall (52,7\%)
-equilibrados indicam que o modelo não está enviesado para falsos positivos
-nem para falsos negativos. A principal limitação reside na heterogeneidade
-entre o domínio do dataset espanhol e as condições das vinhas portuguesas.
+Um mAP@50 de \textbf{67,8\%} e uma precisão de \textbf{76,7\%} são
+resultados sólidos para um primeiro modelo de validação, demonstrando que
+o YOLO26 Nano consegue aprender a estrutura visual das videiras a partir de
+um dataset de qualidade. O recall de 61,9\% indica que ainda existe uma
+fração de objetos não detetados, o que é consistente com a densidade e
+complexidade das cenas de vinha.
 
 \section{Estado do Modelo 2 — Dataset de Palmela}
 
@@ -149,7 +151,7 @@ entre as duas abordagens desenvolvidas neste estágio.
     \midrule
     Origem dos dados         & Dataset público Roboflow     & Vídeo captado em campo \\
     Complexidade das imagens & Moderada                     & Alta \\
-    N.º de classes           & 1--2                         & 4 \\
+    N.º de classes           & 3 (gomo + sarmento + tronco anotados pelo estagiário) & 4 (+ objeto) \\
     Imagens anotadas         & 300 (dataset espanhol + gomos adicionados) & 400 (300 espanhol + 100 Palmela, em curso) \\
     Fundo das imagens        & Relativamente limpo          & Denso, com múltiplos planos \\
     Aplicabilidade real      & Limitada                     & Alta (cenário real de robô) \\

@@ -29,15 +29,16 @@ etapas:
 
 \subsection{Dataset Modelo 1 — Origem Espanhola}
 
-O primeiro modelo foi treinado com recurso a um dataset público disponível na
-plataforma Roboflow, oriundo de investigações realizadas em vinhas espanholas.
-Este dataset apresenta imagens de maior qualidade fotográfica e anotações
-mais uniformes, constituindo uma boa base para uma primeira validação da
-abordagem.
+O primeiro modelo foi treinado com recurso ao dataset público
+\textbf{Segmentation-Vineyard-2}~\cite{vinya2024segvineyard}, disponível na
+plataforma Roboflow Universe e oriundo de investigações em vinhas espanholas
+pelo grupo Vinya. O dataset original continha exclusivamente anotações de
+\texttt{sarmento} e \texttt{tronco}, sem qualquer marcação de gomos.
 
-As etiquetas originais foram revistas e refinadas, e o dataset foi integrado
-com amostras adicionais para aumentar a diversidade morfológica das instâncias
-de gomos.
+A principal contribuição deste estágio ao Modelo~1 foi a \textbf{anotação
+manual dos gomos} em todas as imagens do dataset — tarefa realizada na
+plataforma Roboflow — completando assim as três classes de interesse:
+\texttt{gomo}, \texttt{sarmento} e \texttt{tronco}.
 
 \subsection{Dataset Modelo 2 — Vinhas de Palmela}
 \label{sec:dataset_palmela}

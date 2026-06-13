@@ -8,30 +8,37 @@
 
 \subsection{Caracterização do Dataset}
 
-O primeiro modelo foi desenvolvido com base num dataset público de videiras
-espanholas disponível na plataforma Roboflow. Este dataset contém imagens
-de vinhas em diferentes fases fenológicas, com anotações de gomos já
-validadas pela comunidade.
+O primeiro modelo foi desenvolvido com base no dataset público
+\textbf{Segmentation-Vineyard-2}~\cite{vinya2024segvineyard}, disponível na
+plataforma Roboflow Universe e de origem espanhola. Este dataset continha
+originalmente apenas anotações de \texttt{sarmento} e \texttt{tronco} —
+não incluía qualquer anotação de gomos.
+
+A contribuição deste estágio consistiu em \textbf{anotar manualmente os
+gomos} em cada uma das 300 imagens do dataset, acrescentando a classe
+\texttt{gomo} ao conjunto de etiquetas existente. O Modelo~1 passou assim
+a ter \textbf{3 classes}: \texttt{gomo}, \texttt{sarmento} e \texttt{tronco}.
 
 O processo de desenvolvimento do Modelo~1 serviu como etapa de validação
-da \textit{pipeline} técnica: verificação do fluxo de download via API,
-configuração do ambiente de treino, e familiarização com as métricas de
-avaliação do YOLOv8.
+da \textit{pipeline} técnica e permitiu obter um primeiro conjunto de
+métricas de referência para a deteção de gomos em condições de imagem
+moderadamente controladas.
 
 \subsection{Refinamento das Etiquetas}
 
 Após uma inspeção visual inicial do dataset espanhol, foram identificadas
-algumas inconsistências nas anotações — gomos com \textit{bounding boxes}
-excessivamente largas ou com sobreposição não intencional. Procedeu-se ao
-refinamento manual de parte dessas anotações, de modo a melhorar a qualidade
-do sinal de treino.
+algumas inconsistências nas anotações de \texttt{sarmento} e \texttt{tronco}
+— \textit{bounding boxes} excessivamente largas ou com sobreposição não
+intencional. Procedeu-se ao refinamento manual de parte dessas anotações,
+em simultâneo com a adição das anotações de \texttt{gomo}.
 
 \subsection{Resultados do Modelo 1}
 
 O treino do Modelo~1 foi realizado na plataforma Roboflow Train, utilizando
-o modelo base \textbf{YOLO Nano}, sobre a versão do dataset de 20 de maio de
-2026. A Tabela~\ref{tab:resultados_m1_dev} resume as métricas obtidas no
-conjunto de validação.
+o modelo base \textbf{YOLO26 Nano}, sobre o dataset
+\textbf{Segmentation-Vineyard-2}~\cite{vinya2024segvineyard} com as
+anotações revistas e gomos adicionados. A Tabela~\ref{tab:resultados_m1_dev}
+resume as métricas obtidas no conjunto de validação.
 
 \begin{table}[H]
   \centering
@@ -41,26 +48,21 @@ conjunto de validação.
     \toprule
     \textbf{Métrica}   & \textbf{Valor} \\
     \midrule
-    mAP@50             & 48,8\% \\
-    Precisão           & 54,3\% \\
-    Recall             & 52,7\% \\
-    F1-Score           & 53,5\% \\
+    mAP@50             & 67,8\% \\
+    Precisão           & 76,7\% \\
+    Recall             & 61,9\% \\
+    F1-Score           & 68,5\% \\
     \bottomrule
   \end{tabular}
 \end{table}
 
-Os resultados obtidos são moderados, o que é consistente com as
-características do dataset: imagens de origem espanhola com condições
-visuais distintas das vinhas de Palmela, às quais se adicionaram anotações
-de gomos anteriormente em falta. A precisão de 54,3\% e o recall de 52,7\%
-indicam que o modelo tem dificuldade em generalizar para imagens de
-contextos mais complexos.
-
-A inferência visual sobre imagens do conjunto de teste revelou que o modelo
-identifica corretamente os \textbf{sarmentos} com elevada confiança (até
-97\%) e o \textbf{tronco} com boa confiança (83\%), sendo a deteção dos
-gomos mais incerta — resultado esperado dada a pequena dimensão das
-instâncias e a natureza do dataset de origem.
+Os resultados são bastante positivos para um primeiro modelo de validação.
+A precisão de 76,7\% indica poucos falsos positivos, enquanto o recall de
+61,9\% sugere que ainda existe uma fração de objetos não detetados —
+esperado dada a complexidade visual das imagens de vinha. A inferência
+visual sobre imagens do conjunto de teste revelou que o modelo identifica
+corretamente os \textbf{sarmentos} com elevada confiança (até 97\%) e o
+\textbf{tronco} com boa confiança (83\%).
 
 Este modelo serve essencialmente como \textbf{validação da pipeline técnica}
 e como ponto de partida para o Modelo~2, desenvolvido sobre imagens das

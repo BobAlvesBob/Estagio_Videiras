@@ -8,6 +8,6 @@
 \addvspace {10\p@ }
 \contentsline {table}{\numberline {4.1}{\ignorespaces Métricas do Modelo 1 no conjunto de validação (Roboflow Train)}}{19}{table.caption.14}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {5.1}{\ignorespaces Resultados do Modelo 1 — Dataset Espanhol (validação)}}{24}{table.caption.18}%
+\contentsline {table}{\numberline {5.1}{\ignorespaces Resultados do Modelo 1 — Segmentation-Vineyard-2 (validação)}}{24}{table.caption.18}%
 \contentsline {table}{\numberline {5.2}{\ignorespaces Comparação entre os dois modelos desenvolvidos}}{26}{table.caption.20}%
 \addvspace {10\p@ }

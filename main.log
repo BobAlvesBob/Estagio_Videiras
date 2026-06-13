@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.6.13)  13 JUN 2026 19:54
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.6.13)  13 JUN 2026 22:04
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1154,7 +1154,7 @@ go.png> <./imagens/cedri-logo.png>])
  (capitulos/00c_resumo.tex
 
 LaTeX Warning: Citation 'hidayatullah2026yolo26' on page 3 undefined on input l
-ine 32.
+ine 34.
 
 [3
 
@@ -1173,7 +1173,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [4]
 
 LaTeX Warning: Citation 'hidayatullah2026yolo26' on page 5 undefined on input l
-ine 81.
+ine 83.
 
 [5
 
@@ -1217,9 +1217,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.1595pt}.
 
 [8] (main.lof
-Overfull \hbox (122.0592pt too wide) in paragraph at lines 7--7
- \T1/lmr/m/n/12 (-20) Neck (PSA-Block de aten-ção), Head de de-te-ção para três
- es-ca-las. Fonte: [[]].[][] [][]  
+Overfull \hbox (5.63898pt too wide) in paragraph at lines 7--7
+ \T1/lmr/m/n/12 (-20) be-ças de de-te-ção (\T1/lmr/m/it/12 (-20) small\T1/lmr/m
+/n/12 (-20) , \T1/lmr/m/it/12 (-20) me-dium\T1/lmr/m/n/12 (-20) , \T1/lmr/m/it/
+12 (-20) large\T1/lmr/m/n/12 (-20) ). Fonte: [[]].[][] [][]  
  []
 
 )
@@ -1390,18 +1391,22 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
  (capitulos/03_metodologia.tex
 Cap\'{\i }tulo 3.
+
+LaTeX Warning: Citation 'vinya2024segvineyard' on page 8 undefined on input lin
+e 33.
+
 [8
 
 
 
 
 ]
-Underfull \hbox (badness 4899) in paragraph at lines 106--106
+Underfull \hbox (badness 4899) in paragraph at lines 107--107
 []|\T1/lmr/m/n/12 (+20) Ramo anual que
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 106--106
+Underfull \hbox (badness 10000) in paragraph at lines 107--107
 \T1/lmr/m/n/12 (+20) si-fi-ca-dos (ara-mes,
  []
 
@@ -1421,15 +1426,15 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [10]
-<imagens/videiras_palmela.jpg, id=444, 2168.1pt x 3854.4pt>
+<imagens/videiras_palmela.jpg, id=445, 2168.1pt x 3854.4pt>
 File: imagens/videiras_palmela.jpg Graphic file (type jpg)
 <use imagens/videiras_palmela.jpg>
-Package pdftex.def Info: imagens/videiras_palmela.jpg  used on input line 164.
+Package pdftex.def Info: imagens/videiras_palmela.jpg  used on input line 165.
 (pdftex.def)             Requested size: 211.68661pt x 376.2877pt.
-<imagens/videiras_anotadas.png, id=445, 350.81062pt x 628.59843pt>
+<imagens/videiras_anotadas.png, id=446, 350.81062pt x 628.59843pt>
 File: imagens/videiras_anotadas.png Graphic file (type png)
 <use imagens/videiras_anotadas.png>
-Package pdftex.def Info: imagens/videiras_anotadas.png  used on input line 169.
+Package pdftex.def Info: imagens/videiras_anotadas.png  used on input line 170.
 
 (pdftex.def)             Requested size: 211.68661pt x 379.32008pt.
 
@@ -1441,11 +1446,11 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [11]
-<imagens/Classes_videira_anotada.png, id=450, 231.86626pt x 249.93375pt>
+<imagens/Classes_videira_anotada.png, id=451, 231.86626pt x 249.93375pt>
 File: imagens/Classes_videira_anotada.png Graphic file (type png)
 <use imagens/Classes_videira_anotada.png>
 Package pdftex.def Info: imagens/Classes_videira_anotada.png  used on input lin
-e 179.
+e 180.
 (pdftex.def)             Requested size: 330.76329pt x 356.56735pt.
 
 
@@ -1458,7 +1463,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [12 <./imagens/videiras_palmela.jpg> <./imagens/videiras_anotadas.png>]
 
 LaTeX Warning: Citation 'hidayatullah2026yolo26' on page 13 undefined on input 
-line 191.
+line 192.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1470,7 +1475,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [13 <./imagens/Classes_videira_anotada.png>]
 
 LaTeX Warning: Citation 'hidayatullah2026yolo26' on page 14 undefined on input 
-line 255.
+line 256.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1480,22 +1485,22 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [14]
-<imagens/YOLOV26_ARCH.jpg, id=468, 803.0pt x 1003.75pt>
+<imagens/YOLOV26_ARCH.jpg, id=469, 803.0pt x 1003.75pt>
 File: imagens/YOLOV26_ARCH.jpg Graphic file (type jpg)
 <use imagens/YOLOV26_ARCH.jpg>
-Package pdftex.def Info: imagens/YOLOV26_ARCH.jpg  used on input line 264.
+Package pdftex.def Info: imagens/YOLOV26_ARCH.jpg  used on input line 265.
 (pdftex.def)             Requested size: 405.7355pt x 507.1731pt.
 
 
 LaTeX Warning: Citation 'hidayatullah2026yolo26' on page 15 undefined on input 
-line 268.
+line 269.
 
 
 LaTeX Warning: Citation 'hidayatullah2026yolo26' on page 15 undefined on input 
-line 268.
+line 269.
 
 LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <14.4> not available
-(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 272.
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 273.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -1505,7 +1510,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [15 <./imagens/YOLOV26_ARCH.jpg>]
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
-nput line 279.
+nput line 280.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1527,6 +1532,21 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
  (capitulos/04_desenvolvimento.tex
 Cap\'{\i }tulo 4.
+
+LaTeX Warning: Citation 'vinya2024segvineyard' on page 18 undefined on input li
+ne 12.
+
+
+LaTeX Warning: Citation 'vinya2024segvineyard' on page 18 undefined on input li
+ne 39.
+
+
+Overfull \hbox (33.76776pt too wide) in paragraph at lines 37--42
+\T1/lmr/m/n/12 (-20) base \T1/lmr/bx/n/12 (-20) YOLO26 Nano\T1/lmr/m/n/12 (-20)
+ , so-bre o da-ta-set \T1/lmr/bx/n/12 (-20) Segmentation-Vineyard-2 \T1/lmr/m/n
+/12 (-20) [[]]
+ []
+
 [18
 
 
@@ -1577,6 +1597,10 @@ Cap\'{\i }tulo 5.
 {C:/Users/alves/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathit.enc}
 ]
 
+LaTeX Warning: Citation 'vinya2024segvineyard' on page 24 undefined on input li
+ne 50.
+
+
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
 (fancyhdr)                \setlength{\headheight}{13.59999pt}.
@@ -1584,17 +1608,17 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [24]
-Overfull \hbox (6.79999pt too wide) in paragraph at lines 115--116
+Overfull \hbox (6.79999pt too wide) in paragraph at lines 117--118
 [][] 
  []
 
 
-Overfull \hbox (6.79999pt too wide) in paragraph at lines 122--123
+Overfull \hbox (6.79999pt too wide) in paragraph at lines 124--125
 [][] 
  []
 
 
-Overfull \hbox (6.79999pt too wide) in paragraph at lines 129--130
+Overfull \hbox (6.79999pt too wide) in paragraph at lines 131--132
 [][] 
  []
 
@@ -1672,13 +1696,13 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 28454 strings out of 467871
- 498839 string characters out of 5418376
- 1548420 words of memory out of 5000000
+ 28456 strings out of 467871
+ 498859 string characters out of 5418376
+ 1548473 words of memory out of 5000000
  56493 multiletter control sequences out of 15000+600000
- 708796 words of font info for 207 fonts, out of 8000000 for 9000
+ 708855 words of font info for 208 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,12n,83p,1199b,2875s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,12n,83p,1199b,2881s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/alves/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pf
 b><C:/Users/alves/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbxi10.p
 fb><C:/Users/alves/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi12.p
@@ -1691,9 +1715,9 @@ C:/Users/alves/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy10.pfb><
 C:/Users/alves/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtk10.pfb><
 C:/Users/alves/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt10.pfb><
 C:/Users/alves/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt12.pfb>
-Output written on main.pdf (39 pages, 4764102 bytes).
+Output written on main.pdf (39 pages, 4765217 bytes).
 PDF statistics:
- 665 PDF objects out of 1000 (max. 8388607)
+ 666 PDF objects out of 1000 (max. 8388607)
  152 named destinations out of 1000 (max. 500000)
  43007 words of extra memory for PDF output out of 51595 (max. 10000000)
 
