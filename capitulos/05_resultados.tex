@@ -57,7 +57,7 @@ dataset \textbf{Segmentation-Vineyard-2}~\cite{vinya2024segvineyard}.
     \toprule
     \textbf{Classe}    & \textbf{P} & \textbf{R} & \textbf{F1} & \textbf{mAP@50} \\
     \midrule
-    Todas (global)     & 76,7\%     & 61,9\%     & 68,5\%      & 67,8\%          \\
+    Todas (global)     & 54,3\%     & 52,7\%     & 53,5\%      & 48,8\%          \\
     \bottomrule
   \end{tabular}
 \end{table}
@@ -66,12 +66,13 @@ dataset \textbf{Segmentation-Vineyard-2}~\cite{vinya2024segvineyard}.
 métricas globais no painel principal. Os valores por classe estão disponíveis
 nas ferramentas de avaliação avançada (plano pago).}
 
-Um mAP@50 de \textbf{67,8\%} e uma precisão de \textbf{76,7\%} são
-resultados sólidos para um primeiro modelo de validação, demonstrando que
-o YOLO26 Nano consegue aprender a estrutura visual das videiras a partir de
-um dataset de qualidade. O recall de 61,9\% indica que ainda existe uma
-fração de objetos não detetados, o que é consistente com a densidade e
-complexidade das cenas de vinha.
+Um mAP@50 de \textbf{48,8\%} é um resultado moderado mas coerente com as
+condições do Modelo~1: dataset de domínio espanhol com características visuais
+distintas das vinhas de Palmela, ao qual foram adicionadas as anotações de
+gomo. A precisão (54,3\%) e o recall (52,7\%) equilibrados indicam que o
+modelo não está sistematicamente enviesado. Estes resultados validam a
+\textit{pipeline} técnica e estabelecem uma referência de desempenho para
+comparação com o Modelo~2.
 
 \section{Estado do Modelo 2 — Dataset de Palmela}
 
@@ -149,7 +150,7 @@ entre as duas abordagens desenvolvidas neste estágio.
     \toprule
     \textbf{Aspeto}          & \textbf{Modelo 1 (Espanhol)} & \textbf{Modelo 2 (Palmela)} \\
     \midrule
-    Origem dos dados         & Dataset público Roboflow     & Vídeo captado em campo \\
+    Origem dos dados         & \textit{Segmentation-Vineyard-2} (Roboflow Universe) & Vídeo captado em campo \\
     Complexidade das imagens & Moderada                     & Alta \\
     N.º de classes           & 3 (gomo + sarmento + tronco anotados pelo estagiário) & 4 (+ objeto) \\
     Imagens anotadas         & 300 (dataset espanhol + gomos adicionados) & 400 (300 espanhol + 100 Palmela, em curso) \\

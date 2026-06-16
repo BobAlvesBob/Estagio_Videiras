@@ -4,7 +4,7 @@
 \chapter{Desenvolvimento}
 \label{chap:desenvolvimento}
 
-\section{Modelo 1 — Dataset Espanhol}
+\section{Modelo 1 — \textit{Segmentation-Vineyard-2}}
 
 \subsection{Caracterização do Dataset}
 
@@ -26,7 +26,7 @@ moderadamente controladas.
 
 \subsection{Refinamento das Etiquetas}
 
-Após uma inspeção visual inicial do dataset espanhol, foram identificadas
+Após uma inspeção visual inicial do \textbf{Segmentation-Vineyard-2}, foram identificadas
 algumas inconsistências nas anotações de \texttt{sarmento} e \texttt{tronco}
 — \textit{bounding boxes} excessivamente largas ou com sobreposição não
 intencional. Procedeu-se ao refinamento manual de parte dessas anotações,
@@ -48,21 +48,23 @@ resume as métricas obtidas no conjunto de validação.
     \toprule
     \textbf{Métrica}   & \textbf{Valor} \\
     \midrule
-    mAP@50             & 67,8\% \\
-    Precisão           & 76,7\% \\
-    Recall             & 61,9\% \\
-    F1-Score           & 68,5\% \\
+    mAP@50             & 48,8\% \\
+    Precisão           & 54,3\% \\
+    Recall             & 52,7\% \\
+    F1-Score           & 53,5\% \\
     \bottomrule
   \end{tabular}
 \end{table}
 
-Os resultados são bastante positivos para um primeiro modelo de validação.
-A precisão de 76,7\% indica poucos falsos positivos, enquanto o recall de
-61,9\% sugere que ainda existe uma fração de objetos não detetados —
-esperado dada a complexidade visual das imagens de vinha. A inferência
-visual sobre imagens do conjunto de teste revelou que o modelo identifica
-corretamente os \textbf{sarmentos} com elevada confiança (até 97\%) e o
-\textbf{tronco} com boa confiança (83\%).
+Os resultados obtidos são moderados mas coerentes com a natureza do Modelo~1.
+A precisão de 54,3\% e o recall de 52,7\% equilibrados indicam que o modelo
+não está enviesado para falsos positivos nem para falsos negativos, sendo as
+dificuldades distribuídas de forma homogénea. Um mAP@50 de \textbf{48,8\%}
+é esperado para um primeiro modelo treinado sobre um dataset de domínio
+distinto das condições reais de Palmela, e confirma a viabilidade da
+\textit{pipeline} técnica. A inferência visual sobre imagens do conjunto de
+teste revelou que o modelo identifica corretamente os \textbf{sarmentos}
+com elevada confiança (até 97\%) e o \textbf{tronco} com boa confiança (83\%).
 
 Este modelo serve essencialmente como \textbf{validação da pipeline técnica}
 e como ponto de partida para o Modelo~2, desenvolvido sobre imagens das
@@ -79,7 +81,7 @@ reutilizar integralmente o dataset espanhol, reside na diferença substancial
 entre as condições das imagens disponíveis publicamente e as condições reais
 de operação de um robô de poda nas vinhas portuguesas.
 
-As imagens do dataset espanhol foram, na sua maioria, captadas em condições
+As imagens do \textbf{Segmentation-Vineyard-2} foram, na sua maioria, captadas em condições
 controladas ou com planos de fundo limpos. Em contrapartida, um robô real
 que percorra as vinhas de Palmela capturará cenas com:
 
@@ -132,10 +134,13 @@ ao longo dos sarmentos em posições relativamente regulares.
 
 \paragraph{Densidade de instâncias por imagem.}
 Cada imagem das vinhas de Palmela pode conter dezenas de gomos visíveis.
-A anotação exaustiva de todos eles é impraticável e potencialmente prejudicial
-(anotações incompletas geram falsos negativos durante o treino). Optou-se
-por uma política de anotação \textit{best-effort}: anotar todos os gomos
-claramente visíveis e com pelo menos 50\% da área visível.
+A política de anotação adoptada foi a de \textbf{marcar o máximo de gomos
+identificáveis} em cada imagem. Esta decisão baseia-se numa característica
+biológica favorável: os gomos crescem em posições regulares e previsíveis ao
+longo dos sarmentos, pelo que os seus locais de inserção são reconhecíveis
+mesmo a distância ou em condições de visibilidade parcial. Omitir gomos
+identificáveis introduziria falsos negativos sistemáticos no treino,
+prejudicando a capacidade de \textit{recall} do modelo.
 
 \paragraph{Ambiguidade de fronteiras entre classes.}
 Em certas imagens, a distinção entre um sarmento em primeiro plano e um
@@ -152,7 +157,7 @@ mas reconhece-se que o modelo terá maior dificuldade em detetá-los.
 
 Até à data de elaboração deste relatório, foram anotadas aproximadamente
 \textbf{100 imagens} provenientes das vinhas de Palmela, que foram
-combinadas com as \textbf{300 imagens} do dataset espanhol para compor o
+combinadas com as \textbf{300 imagens} do \textbf{Segmentation-Vineyard-2} para compor o
 dataset do Modelo~2 (400 imagens no total). O trabalho de anotação das
 imagens de Palmela encontra-se ainda em curso.
 

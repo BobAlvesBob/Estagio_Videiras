@@ -85,24 +85,22 @@ instância das quatro classes definidas.
 
 \subsection{Classes e Critérios de Anotação}
 
-A definição das classes resultou de uma análise iterativa das dificuldades
-encontradas nas primeiras sessões de anotação. A necessidade de incluir
-elementos como troncos e outros objetos (arames, postes) surgiu da observação de que o modelo tendia a
-confundir esses elementos com sarmentos e gomos, gerando falsos positivos.
-A Tabela~\ref{tab:classes} descreve cada classe e os critérios adoptados.
+A definição das classes resultou de uma análise iterativa das necessidades
+do sistema robótico e das dificuldades encontradas nas primeiras sessões de
+anotação. Cada classe serve um propósito específico na operação do robô:
 
 \begin{table}[H]
   \centering
-  \caption{Classes de anotação e respetivos critérios}
+  \caption{Classes de anotação, propósito robótico e critérios de anotação}
   \label{tab:classes}
-  \begin{tabularx}{\textwidth}{l p{3.5cm} X}
+  \begin{tabularx}{\textwidth}{l p{3.8cm} X}
     \toprule
-    \textbf{Classe}    & \textbf{Descrição}              & \textbf{Critério de anotação} \\
+    \textbf{Classe}    & \textbf{Propósito robótico}     & \textbf{Critério de anotação} \\
     \midrule
-    \texttt{gomo}      & Gomo visível no sarmento        & Bounding box ajustada ao contorno do gomo, mesmo que parcialmente oclusos. \\[0.4em]
-    \texttt{sarmento}  & Ramo anual que nasce do cordão  & Caixa delimitadora ao longo do sarmento visível; sarmentos parcialmente oclusos são anotados se pelo menos 30\% estiver visível. \\[0.4em]
-    \texttt{tronco}    & Tronco principal da planta      & Incluído para evitar confusão com sarmentos de fundo. \\[0.4em]
-    \texttt{objeto}     & Elementos não classificados (arames, fios, postes) & Incluído para reduzir falsos positivos em estruturas que não são gomo, sarmento ou tronco. \\
+    \texttt{gomo}      & Alvo principal: determina os pontos de corte para a poda & \textit{Bounding box} ajustada ao contorno do gomo. Anotados todos os gomos identificáveis, dado que a sua posição ao longo dos sarmentos é reconhecível mesmo a distância. \\[0.4em]
+    \texttt{sarmento}  & Guia estrutural: os gomos crescem ao longo dos sarmentos, pelo que a sua deteção facilita a localização dos gomos & Caixa delimitadora ao longo do sarmento visível; sarmentos parcialmente oclusos são anotados se pelo menos 30\% estiver visível. \\[0.4em]
+    \texttt{tronco}    & Navegação: permite ao robô identificar cada videira e orientar o percurso ao longo da fila & Incluído para guia de navegação e para evitar confusão com sarmentos de fundo. \\[0.4em]
+    \texttt{objeto}    & Segurança: identifica estacas, mangueiras e outros obstáculos que o robô deve evitar durante o deslocamento & Anotados os elementos não classificáveis nas outras classes que possam representar obstáculos físicos. \\
     \bottomrule
   \end{tabularx}
 \end{table}
