@@ -11,13 +11,17 @@ de \textbf{deteção automática de gomos em videiras} utilizando técnicas de
 visão computacional e \textit{deep learning}, com vista à sua integração num
 futuro sistema robótico de poda mecanizada.
 
-Ao longo do período de estágio foram desenvolvidas duas abordagens
-complementares. O \textbf{Modelo~1}, baseado num dataset espanhol de domínio
-público, permitiu validar a \textit{pipeline} técnica e demonstrar que o
-    YOLO26 Nano é capaz de detetar gomos em condições de imagem moderadamente
-controladas. O \textbf{Modelo~2}, construído a partir de vídeos captados nas
-vinhas de Palmela, representa um esforço mais ambicioso e realista, visando
-treinar um modelo robusto em condições próximas de uma operação robótica real.
+Ao longo do período de estágio foram desenvolvidos três modelos
+progressivos. O \textbf{Modelo~1}, baseado exclusivamente no dataset espanhol
+\textit{Segmentation-Vineyard-2} (com anotações de \textit{gomo} adicionadas),
+validou a \textit{pipeline} técnica. O \textbf{Modelo~2}, construído sobre
+400 imagens base (300 espanholas + 100 de Palmela, expandidas a 772 pelo
+\textit{data augmentation} do Roboflow), obteve um mAP@50 de 48,8\%,
+confirmando a viabilidade do sistema em domínio misto. O \textbf{Modelo~3},
+com 938 imagens após augmentation, obteve um mAP@50 de 43,7\% e Precisão
+de 57,3\%, com os gomos a surgir em inferências a limiares de confiança
+de 16--26\%, indicando que a classe está a ser aprendida e que o incremento
+do dataset resultará em melhoria contínua.
 
 Os principais resultados e contribuições do estágio são:
 
@@ -25,10 +29,10 @@ Os principais resultados e contribuições do estágio são:
   \item Construção de uma metodologia de aquisição e anotação de imagens
     adaptada à complexidade do ambiente vitícola português;
 
-  \item Desenvolvimento de um dataset original com aproximadamente
-    \textbf{400 imagens anotadas} de vinhas da região de Palmela, com
-    quatro classes:     \textit{gomo}, \textit{sarmento}, \textit{tronco} e
-    \textit{objeto};
+  \item Desenvolvimento de três versões progressivas de dataset, das 300
+    imagens base iniciais até 400+ imagens com quatro classes —
+    \textit{gomo}, \textit{sarmento}, \textit{tronco} e \textit{objeto}
+    — gerando 938 imagens para treino após augmentation do Roboflow;
 
   \item Identificação e documentação dos principais \textbf{desafios
     técnicos} associados à deteção de gomos em cenas reais: oclusões, fundo

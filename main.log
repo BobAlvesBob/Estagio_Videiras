@@ -1,7 +1,6 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.6.13)  16 JUN 2026 01:48
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.6.13)  18 JUN 2026 15:14
 entering extended mode
  restricted \write18 enabled.
- file:line:error style messages enabled.
  %&-line parsing enabled.
 **./main.tex
 (main.tex
@@ -1051,9 +1050,8 @@ Package biblatex Info: Automatic encoding selection.
 \openout3 = `main.bcf'.
 
 Package biblatex Info: Trying to load bibliographic data...
-Package biblatex Info: ... file 'main.bbl' not found.
-
-No file main.bbl.
+Package biblatex Info: ... file 'main.bbl' found.
+ (main.bbl)
 Package biblatex Info: Reference section=0 on input line 106.
 Package biblatex Info: Reference segment=0 on input line 106.
 
@@ -1074,7 +1072,7 @@ Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
 
 
 (capitulos/00_capa.tex
-<imagens/ipb-logo.png, id=243, 451.6875pt x 451.6875pt>
+<imagens/ipb-logo.png, id=271, 451.6875pt x 451.6875pt>
 File: imagens/ipb-logo.png Graphic file (type png)
 <use imagens/ipb-logo.png>
 Package pdftex.def Info: imagens/ipb-logo.png  used on input line 12.
@@ -1127,7 +1125,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 (C:\Users\alves\AppData\Local\Programs\MiKTeX\tex/latex/microtype\mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
-<imagens/cedri-logo.png, id=245, 329.5512pt x 153.2124pt>
+<imagens/cedri-logo.png, id=273, 329.5512pt x 153.2124pt>
 File: imagens/cedri-logo.png Graphic file (type png)
 <use imagens/cedri-logo.png>
 Package pdftex.def Info: imagens/cedri-logo.png  used on input line 17.
@@ -1151,16 +1149,7 @@ go.png> <./imagens/cedri-logo.png>])
 ])
 \openout2 = `capitulos/00c_resumo.aux'.
 
- (capitulos/00c_resumo.tex
-
-LaTeX Warning: Citation 'vinya2024segvineyard' on page 3 undefined on input lin
-e 22.
-
-
-LaTeX Warning: Citation 'hidayatullah2026yolo26' on page 3 undefined on input l
-ine 34.
-
-[3
+ (capitulos/00c_resumo.tex [3
 
 
 
@@ -1174,23 +1163,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[4]
-
-LaTeX Warning: Citation 'hidayatullah2026yolo26' on page 5 undefined on input l
-ine 83.
-
-[5
+[4] [5
 
 
-]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[6]) (main.toc [7
+]) (main.toc [6
 
 
 
@@ -1206,12 +1182,8 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `lmtt' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-)
-\tf@toc=\write5
-\openout5 = `main.toc'.
-
 Package babel Info: 'portuguese' activates 'portuges' shorthands.
-(babel)             Reported on input line 122.
+(babel)             Reported on input line 68.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1220,14 +1192,19 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.1595pt}.
 
-[8] (main.lof
-Overfull \hbox (5.63898pt too wide) in paragraph at lines 7--7
- \T1/lmr/m/n/12 (-20) be-ças de de-te-ção (\T1/lmr/m/it/12 (-20) small\T1/lmr/m
-/n/12 (-20) , \T1/lmr/m/it/12 (-20) me-dium\T1/lmr/m/n/12 (-20) , \T1/lmr/m/it/
-12 (-20) large\T1/lmr/m/n/12 (-20) ). Fonte: [[]].[][] [][]  
- []
+[7])
+\tf@toc=\write5
+\openout5 = `main.toc'.
 
-)
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.1595pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.1595pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.1595pt}.
+
+[8] (main.lof)
 \tf@lof=\write6
 \openout6 = `main.lof'.
 
@@ -1281,73 +1258,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
  (capitulos/02_revisao_literatura.tex
 Cap\'{\i }tulo 2.
-
-LaTeX Warning: Citation 'lecun2015deep' on page 4 undefined on input line 15.
-
-
-LaTeX Warning: Citation 'mohanty2016plant' on page 4 undefined on input line 19
-.
-
-
-LaTeX Warning: Citation 'sa2016deepfruits' on page 4 undefined on input line 20
-.
-
-
-LaTeX Warning: Citation 'osco2021review' on page 4 undefined on input line 21.
-
-
-Overfull \hbox (27.29575pt too wide) in paragraph at lines 17--24
-\T1/lmr/m/n/12 (-20) lhas [[]], es-ti-ma-tiva do es-tado de ma-tu-ra-ção de fru
--tos [[]],
- []
-
-
-LaTeX Warning: Citation 'ren2015faster' on page 4 undefined on input line 34.
-
-
-Overfull \hbox (45.66393pt too wide) in paragraph at lines 33--37
-[]\T1/lmr/bx/n/12 (-20) Modelos em dois es-tá-gios \T1/lmr/m/n/12 (-20) (\T1/lm
-r/m/it/12 (-20) two-stage de-tec-tors\T1/lmr/m/n/12 (-20) ): Como o Fas-ter R-C
-NN [[]],
- []
-
-
-LaTeX Warning: Citation 'redmon2016you' on page 4 undefined on input line 39.
-
-
-LaTeX Warning: Citation 'liu2016ssd' on page 4 undefined on input line 40.
-
 [4
 
 
 
 
 ]
-
-LaTeX Warning: Citation 'redmon2016you' on page 5 undefined on input line 49.
-
-
-LaTeX Warning: Citation 'jocher2023ultralytics' on page 5 undefined on input li
-ne 51.
-
-
-Overfull \hbox (45.38866pt too wide) in paragraph at lines 49--54
-\T1/lmr/m/n/12 (-20) con-ti-nu-a-mente apri-mo-rada. O \T1/lmr/bx/n/12 (-20) YO
--LOv8\T1/lmr/m/n/12 (-20) , de-sen-vol-vido pela Ul-traly-tics [[]],
- []
-
-
-LaTeX Warning: Citation 'hidayatullah2026yolo26' on page 5 undefined on input l
-ine 55.
-
-
-LaTeX Warning: Citation 'santos2020grape' on page 5 undefined on input line 82.
-
-
-
-LaTeX Warning: Citation 'nuske2011estimating' on page 5 undefined on input line
- 83.
-
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -1357,24 +1273,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [5{C:/Users/alves/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathsy.en
 c}]
-
-LaTeX Warning: Citation 'kicherer2015automatic' on page 6 undefined on input li
-ne 92.
-
-
-LaTeX Warning: Citation 'majeed2020deep' on page 6 undefined on input line 93.
-
-
-LaTeX Warning: Citation 'botterill2017robot' on page 6 undefined on input line 
-102.
-
-
-LaTeX Warning: Citation 'aquino2018vitisberry' on page 6 undefined on input lin
-e 104.
-
-
-LaTeX Warning: Citation 'roboflow2020' on page 6 undefined on input line 111.
-
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -1395,10 +1293,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
  (capitulos/03_metodologia.tex
 Cap\'{\i }tulo 3.
-
-LaTeX Warning: Citation 'vinya2024segvineyard' on page 8 undefined on input lin
-e 33.
-
 [8
 
 
@@ -1435,12 +1329,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [10]
-<imagens/videiras_palmela.jpg, id=444, 2168.1pt x 3854.4pt>
+<imagens/videiras_palmela.jpg, id=532, 2168.1pt x 3854.4pt>
 File: imagens/videiras_palmela.jpg Graphic file (type jpg)
 <use imagens/videiras_palmela.jpg>
 Package pdftex.def Info: imagens/videiras_palmela.jpg  used on input line 163.
 (pdftex.def)             Requested size: 211.68661pt x 376.2877pt.
-<imagens/videiras_anotadas.png, id=445, 350.81062pt x 628.59843pt>
+<imagens/videiras_anotadas.png, id=533, 350.81062pt x 628.59843pt>
 File: imagens/videiras_anotadas.png Graphic file (type png)
 <use imagens/videiras_anotadas.png>
 Package pdftex.def Info: imagens/videiras_anotadas.png  used on input line 168.
@@ -1455,7 +1349,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [11]
-<imagens/Classes_videira_anotada.png, id=450, 231.86626pt x 249.93375pt>
+<imagens/Classes_videira_anotada.png, id=538, 231.86626pt x 249.93375pt>
 File: imagens/Classes_videira_anotada.png Graphic file (type png)
 <use imagens/Classes_videira_anotada.png>
 Package pdftex.def Info: imagens/Classes_videira_anotada.png  used on input lin
@@ -1471,10 +1365,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [12 <./imagens/videiras_palmela.jpg> <./imagens/videiras_anotadas.png>]
 
-LaTeX Warning: Citation 'hidayatullah2026yolo26' on page 13 undefined on input 
-line 190.
-
-
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
 (fancyhdr)                \setlength{\headheight}{13.59999pt}.
@@ -1483,10 +1373,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [13 <./imagens/Classes_videira_anotada.png>]
 
-LaTeX Warning: Citation 'hidayatullah2026yolo26' on page 14 undefined on input 
-line 254.
-
-
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
 (fancyhdr)                \setlength{\headheight}{13.59999pt}.
@@ -1494,22 +1380,14 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [14]
-<imagens/YOLOV26_ARCH.jpg, id=468, 803.0pt x 1003.75pt>
+<imagens/YOLOV26_ARCH.jpg, id=558, 803.0pt x 1003.75pt>
 File: imagens/YOLOV26_ARCH.jpg Graphic file (type jpg)
 <use imagens/YOLOV26_ARCH.jpg>
 Package pdftex.def Info: imagens/YOLOV26_ARCH.jpg  used on input line 263.
 (pdftex.def)             Requested size: 405.7355pt x 507.1731pt.
-
-
-LaTeX Warning: Citation 'hidayatullah2026yolo26' on page 15 undefined on input 
-line 267.
-
-
-LaTeX Warning: Citation 'hidayatullah2026yolo26' on page 15 undefined on input 
-line 267.
-
 LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <14.4> not available
 (Font)              Font shape `T1/lmtt/b/n' tried instead on input line 271.
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -1542,18 +1420,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
  (capitulos/04_desenvolvimento.tex
 Cap\'{\i }tulo 4.
 
-LaTeX Warning: Citation 'vinya2024segvineyard' on page 18 undefined on input li
-ne 12.
-
-
-LaTeX Warning: Citation 'vinya2024segvineyard' on page 18 undefined on input li
-ne 39.
-
-
-Overfull \hbox (33.76776pt too wide) in paragraph at lines 37--42
-\T1/lmr/m/n/12 (-20) base \T1/lmr/bx/n/12 (-20) YOLO26 Nano\T1/lmr/m/n/12 (-20)
- , so-bre o da-ta-set \T1/lmr/bx/n/12 (-20) Segmentation-Vineyard-2 \T1/lmr/m/n
-/12 (-20) [[]]
+Underfull \hbox (badness 1715) in paragraph at lines 37--37
+[]|\T1/lmr/bx/n/12 (+20) Após aug-men-ta-tion
  []
 
 [18
@@ -1585,7 +1453,13 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[21])
+[21]
+<imagens/resultado_v3.png, id=625, 888.31876pt x 611.28375pt>
+File: imagens/resultado_v3.png Graphic file (type png)
+<use imagens/resultado_v3.png>
+Package pdftex.def Info: imagens/resultado_v3.png  used on input line 248.
+(pdftex.def)             Requested size: 374.86775pt x 257.95932pt.
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -1594,21 +1468,14 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [22]
-\openout2 = `capitulos/05_resultados.aux'.
 
- (capitulos/05_resultados.tex
-Cap\'{\i }tulo 5.
-[23
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-
-
-
-{C:/Users/alves/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathit.enc}
-]
-
-LaTeX Warning: Citation 'vinya2024segvineyard' on page 24 undefined on input li
-ne 50.
-
+[23 <./imagens/resultado_v3.png>])
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -1617,23 +1484,55 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [24]
-Overfull \hbox (6.79999pt too wide) in paragraph at lines 118--119
-[][] 
+\openout2 = `capitulos/05_resultados.aux'.
+
+ (capitulos/05_resultados.tex
+Cap\'{\i }tulo 5.
+[25
+
+
+
+
+{C:/Users/alves/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathit.enc}
+]
+Overfull \hbox (29.31989pt too wide) in paragraph at lines 49--49
+[]\T1/lmr/bx/n/17.28 (-20) Resultados do Mo-delo 1 ^^V \T1/lmr/bx/it/17.28 (-20
+) Segmentation-Vineyard-
  []
 
 
-Overfull \hbox (6.79999pt too wide) in paragraph at lines 125--126
-[][] 
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[26]
+File: imagens/resultado_v3.png Graphic file (type png)
+<use imagens/resultado_v3.png>
+Package pdftex.def Info: imagens/resultado_v3.png  used on input line 120.
+(pdftex.def)             Requested size: 352.81552pt x 242.78358pt.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[27]
+Underfull \hbox (badness 10000) in paragraph at lines 179--179
+[]|\T1/lmr/m/it/12 (+20) Segmentation-
  []
 
 
-Overfull \hbox (6.79999pt too wide) in paragraph at lines 132--133
-[][] 
+Underfull \hbox (badness 4341) in paragraph at lines 179--179
+[]|\T1/lmr/m/n/12 (+20) SVY-2 + Pal-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 161--161
-[]|\T1/lmr/m/it/12 (+20) Segmentation-Vineyard-2
+Underfull \hbox (badness 4341) in paragraph at lines 179--179
+[]|\T1/lmr/m/n/12 (+20) SVY-2 + Pal-
  []
 
 )
@@ -1644,20 +1543,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[25]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[26]
+[28]
 \openout2 = `capitulos/06_conclusao.aux'.
 
  (capitulos/06_conclusao.tex
 Cap\'{\i }tulo 6.
-[27
+[29
 
 
 
@@ -1670,7 +1561,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[28])
+[30])
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -1678,11 +1569,23 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[29]
+[31]
+Package microtype Info: Character `029' is missing
+(microtype)             in font `T1/lmr/m/sc/12'.
+(microtype)             Ignoring protrusion settings for this character.
+ [32
 
-LaTeX Warning: Empty bibliography on input line 138.
 
-(main.aux (capitulos/00_capa.aux) (capitulos/00b_agradecimentos.aux)
+
+]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[33] (main.aux (capitulos/00_capa.aux) (capitulos/00b_agradecimentos.aux)
 (capitulos/00c_resumo.aux) (capitulos/01_introducao.aux)
 (capitulos/02_revisao_literatura.aux) (capitulos/03_metodologia.aux)
 (capitulos/04_desenvolvimento.aux) (capitulos/05_resultados.aux)
@@ -1691,44 +1594,37 @@ LaTeX Warning: Empty bibliography on input line 138.
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
  ***********
-
-
-LaTeX Warning: There were undefined references.
-
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 0FDC231FBE2DC696178718044EDE6DB8;12273.
-
-Package biblatex Warning: Please (re)run Biber on the file:
-(biblatex)                main
-(biblatex)                and rerun LaTeX afterwards.
-
+(rerunfilecheck)             Checksum: A76B6961D33E5B395BC36F8E8B6FD5E5;14394.
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 28464 strings out of 467871
- 498980 string characters out of 5418376
- 1548547 words of memory out of 5000000
- 56495 multiletter control sequences out of 15000+600000
- 713469 words of font info for 212 fonts, out of 8000000 for 9000
+ 28615 strings out of 467871
+ 503553 string characters out of 5418376
+ 1550991 words of memory out of 5000000
+ 56601 multiletter control sequences out of 15000+600000
+ 716981 words of font info for 218 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,12n,83p,1199b,2881s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,13n,83p,1199b,2916s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/alves/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pf
 b><C:/Users/alves/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbxi10.p
-fb><C:/Users/alves/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi12.p
-fb><C:/Users/alves/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr10.pf
-b><C:/Users/alves/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pfb
-><C:/Users/alves/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr6.pfb><
-C:/Users/alves/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri10.pfb><
-C:/Users/alves/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri12.pfb><
-C:/Users/alves/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy10.pfb><
-C:/Users/alves/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtk10.pfb><
-C:/Users/alves/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt10.pfb><
-C:/Users/alves/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt12.pfb>
-Output written on main.pdf (39 pages, 4766771 bytes).
+fb><C:/Users/alves/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmcsc10.
+pfb><C:/Users/alves/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi12.
+pfb><C:/Users/alves/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr10.p
+fb><C:/Users/alves/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pf
+b><C:/Users/alves/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr6.pfb>
+<C:/Users/alves/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri10.pfb>
+<C:/Users/alves/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri12.pfb>
+<C:/Users/alves/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy10.pfb>
+<C:/Users/alves/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtk10.pfb>
+<C:/Users/alves/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt10.pfb>
+<C:/Users/alves/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt12.pfb>
+
+Output written on main.pdf (43 pages, 5540333 bytes).
 PDF statistics:
- 665 PDF objects out of 1000 (max. 8388607)
- 152 named destinations out of 1000 (max. 500000)
- 45055 words of extra memory for PDF output out of 51595 (max. 10000000)
+ 814 PDF objects out of 1000 (max. 8388607)
+ 184 named destinations out of 1000 (max. 500000)
+ 47164 words of extra memory for PDF output out of 51595 (max. 10000000)
 

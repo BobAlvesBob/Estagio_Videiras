@@ -17,7 +17,7 @@
 \contentsline {subsection}{\numberline {2.3.2}Deteção de Sarmentos e Estrutura da Planta}{6}{subsection.2.3.2}%
 \contentsline {subsection}{\numberline {2.3.3}Deteção de Gomos}{6}{subsection.2.3.3}%
 \contentsline {section}{\numberline {2.4}Plataformas de Anotação de Dados}{6}{section.2.4}%
-\contentsline {section}{\numberline {2.5}Desafios em Ambientes Vitícolas Reais}{7}{section.2.5}%
+\contentsline {section}{\numberline {2.5}Desafios em Ambientes Vitícolas Reais}{6}{section.2.5}%
 \contentsline {chapter}{\numberline {3}Metodologia}{8}{chapter.3}%
 \contentsline {section}{\numberline {3.1}Visão Geral da Pipeline}{8}{section.3.1}%
 \contentsline {section}{\numberline {3.2}Aquisição de Dados}{8}{section.3.2}%
@@ -32,33 +32,40 @@
 \contentsline {subsection}{\numberline {3.4.3}Scripts de Download Automatizado}{16}{subsection.3.4.3}%
 \contentsline {section}{\numberline {3.5}Procedimento de Treino}{16}{section.3.5}%
 \contentsline {chapter}{\numberline {4}Desenvolvimento}{18}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Modelo 1 — \textit {Segmentation-Vineyard-2}}{18}{section.4.1}%
+\contentsline {section}{Nota sobre Contagem de Imagens}{18}{section*.14}%
+\contentsline {section}{\numberline {4.1}Modelo 1 — \textit {Segmentation-Vineyard-2} (fase de validação técnica)}{18}{section.4.1}%
 \contentsline {subsection}{\numberline {4.1.1}Caracterização do Dataset}{18}{subsection.4.1.1}%
-\contentsline {subsection}{\numberline {4.1.2}Refinamento das Etiquetas}{18}{subsection.4.1.2}%
-\contentsline {subsection}{\numberline {4.1.3}Resultados do Modelo 1}{18}{subsection.4.1.3}%
-\contentsline {section}{\numberline {4.2}Modelo 2 — Dataset de Palmela}{19}{section.4.2}%
+\contentsline {subsection}{\numberline {4.1.2}Refinamento das Etiquetas}{19}{subsection.4.1.2}%
+\contentsline {subsection}{\numberline {4.1.3}Observações Qualitativas}{19}{subsection.4.1.3}%
+\contentsline {section}{\numberline {4.2}Modelo 2 — SVY-2 + Palmela (400 imagens base)}{19}{section.4.2}%
 \contentsline {subsection}{\numberline {4.2.1}Justificação e Contexto}{19}{subsection.4.2.1}%
 \contentsline {subsection}{\numberline {4.2.2}Processo de Captação de Vídeo}{20}{subsection.4.2.2}%
 \contentsline {subsection}{\numberline {4.2.3}Importação e Extração de Frames no Roboflow}{20}{subsection.4.2.3}%
 \contentsline {subsection}{\numberline {4.2.4}Evolução da Estratégia de Anotação}{20}{subsection.4.2.4}%
-\contentsline {subsection}{\numberline {4.2.5}Dificuldades Específicas e Decisões Tomadas}{20}{subsection.4.2.5}%
-\contentsline {paragraph}{Densidade de instâncias por imagem.}{20}{section*.15}%
-\contentsline {paragraph}{Ambiguidade de fronteiras entre classes.}{21}{section*.16}%
-\contentsline {paragraph}{Gomos muito pequenos.}{21}{section*.17}%
-\contentsline {subsection}{\numberline {4.2.6}Estado Atual da Anotação}{21}{subsection.4.2.6}%
-\contentsline {section}{\numberline {4.3}Considerações sobre a Complexidade do Problema}{21}{section.4.3}%
-\contentsline {chapter}{\numberline {5}Resultados Parciais}{23}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Nota Preliminar}{23}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Métricas de Avaliação}{23}{section.5.2}%
-\contentsline {section}{\numberline {5.3}Resultados do Modelo 1 — Dataset Espanhol}{24}{section.5.3}%
-\contentsline {section}{\numberline {5.4}Estado do Modelo 2 — Dataset de Palmela}{24}{section.5.4}%
-\contentsline {section}{\numberline {5.5}Análise das Dificuldades Observadas}{25}{section.5.5}%
-\contentsline {section}{\numberline {5.6}Comparação entre os Dois Modelos}{25}{section.5.6}%
-\contentsline {chapter}{\numberline {6}Conclusão e Trabalhos Futuros}{27}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Conclusão}{27}{section.6.1}%
-\contentsline {section}{\numberline {6.2}Trabalhos Futuros}{28}{section.6.2}%
-\contentsline {subsection}{\numberline {6.2.1}Expansão e Diversificação do Dataset}{28}{subsection.6.2.1}%
-\contentsline {subsection}{\numberline {6.2.2}Arquiteturas de Modelo Mais Avançadas}{28}{subsection.6.2.2}%
-\contentsline {subsection}{\numberline {6.2.3}Integração com Informação de Profundidade}{29}{subsection.6.2.3}%
-\contentsline {subsection}{\numberline {6.2.4}Validação em Ambiente Real}{29}{subsection.6.2.4}%
-\contentsline {subsection}{\numberline {6.2.5}Técnicas de \textit {Data Augmentation} Específicas}{29}{subsection.6.2.5}%
+\contentsline {subsection}{\numberline {4.2.5}Dificuldades Específicas e Decisões Tomadas}{21}{subsection.4.2.5}%
+\contentsline {paragraph}{Densidade de instâncias por imagem.}{21}{section*.16}%
+\contentsline {paragraph}{Ambiguidade de fronteiras entre classes.}{21}{section*.17}%
+\contentsline {paragraph}{Gomos muito pequenos.}{21}{section*.18}%
+\contentsline {subsection}{\numberline {4.2.6}Estado da Anotação e Métricas}{21}{subsection.4.2.6}%
+\contentsline {section}{\numberline {4.3}Modelo 3 — Dataset Expandido (400+ imagens base, 938 augmentadas)}{22}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Contexto e Motivação}{22}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}Composição do Dataset e Resultados}{22}{subsection.4.3.2}%
+\contentsline {subsection}{\numberline {4.3.3}Análise dos Resultados do Modelo 3}{23}{subsection.4.3.3}%
+\contentsline {section}{\numberline {4.4}Considerações sobre a Complexidade do Problema}{24}{section.4.4}%
+\contentsline {chapter}{\numberline {5}Resultados Parciais}{25}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Nota Preliminar}{25}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Métricas de Avaliação}{25}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Resultados do Modelo 1 — \textit {Segmentation-Vineyard-2}}{26}{section.5.3}%
+\contentsline {section}{\numberline {5.4}Resultados do Modelo 2 — SVY-2 + Palmela}{26}{section.5.4}%
+\contentsline {section}{\numberline {5.5}Resultados do Modelo 3 — Dataset Expandido}{27}{section.5.5}%
+\contentsline {section}{\numberline {5.6}Análise das Dificuldades Observadas}{27}{section.5.6}%
+\contentsline {section}{\numberline {5.7}Comparação entre os Três Modelos}{28}{section.5.7}%
+\contentsline {chapter}{\numberline {6}Conclusão e Trabalhos Futuros}{29}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Conclusão}{29}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Trabalhos Futuros}{30}{section.6.2}%
+\contentsline {subsection}{\numberline {6.2.1}Expansão e Diversificação do Dataset}{30}{subsection.6.2.1}%
+\contentsline {subsection}{\numberline {6.2.2}Arquiteturas de Modelo Mais Avançadas}{30}{subsection.6.2.2}%
+\contentsline {subsection}{\numberline {6.2.3}Integração com Informação de Profundidade}{31}{subsection.6.2.3}%
+\contentsline {subsection}{\numberline {6.2.4}Validação em Ambiente Real}{31}{subsection.6.2.4}%
+\contentsline {subsection}{\numberline {6.2.5}Técnicas de \textit {Data Augmentation} Específicas}{31}{subsection.6.2.5}%
+\contentsline {chapter}{Referências Bibliográficas}{32}{chapter*.26}%

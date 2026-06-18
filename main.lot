@@ -6,8 +6,11 @@
 \contentsline {table}{\numberline {3.2}{\ignorespaces Classes de anotação, propósito robótico e critérios de anotação}}{10}{table.caption.9}%
 \contentsline {table}{\numberline {3.3}{\ignorespaces Configuração de treino no Roboflow Train}}{17}{table.caption.13}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {4.1}{\ignorespaces Métricas do Modelo 1 no conjunto de validação (Roboflow Train)}}{19}{table.caption.14}%
+\contentsline {table}{\numberline {4.1}{\ignorespaces Composição dos datasets por modelo (imagens base vs.\ após \textit {data augmentation})}}{18}{table.caption.15}%
+\contentsline {table}{\numberline {4.2}{\ignorespaces Métricas do Modelo 2 no conjunto de validação (Roboflow Train)}}{21}{table.caption.19}%
+\contentsline {table}{\numberline {4.3}{\ignorespaces Métricas do Modelo 3 no conjunto de validação (Roboflow Train)}}{22}{table.caption.20}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {5.1}{\ignorespaces Resultados do Modelo 1 — Segmentation-Vineyard-2 (validação)}}{24}{table.caption.18}%
-\contentsline {table}{\numberline {5.2}{\ignorespaces Comparação entre os dois modelos desenvolvidos}}{26}{table.caption.20}%
+\contentsline {table}{\numberline {5.1}{\ignorespaces Resultados do Modelo 2 (validação) — SVY-2 + Palmela, 772 imagens}}{26}{table.caption.22}%
+\contentsline {table}{\numberline {5.2}{\ignorespaces Resultados do Modelo 3 (validação) — 938 imagens}}{27}{table.caption.23}%
+\contentsline {table}{\numberline {5.3}{\ignorespaces Comparação entre os três modelos desenvolvidos}}{28}{table.caption.25}%
 \addvspace {10\p@ }

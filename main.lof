@@ -6,6 +6,7 @@
 \contentsline {figure}{\numberline {3.2}{\ignorespaces Distribuição do número de instâncias anotadas por classe na imagem de exemplo.}}{13}{figure.caption.11}%
 \contentsline {figure}{\numberline {3.3}{\ignorespaces Diagrama de arquitetura do YOLO26 Nano: Backbone (C3k2 + SPPF com atalho residual), Neck (C2PSA com PSABlock de atenção) e três cabeças de deteção (\textit {small}, \textit {medium}, \textit {large}). Fonte:~\blx@tocontentsinit {0}\cite {hidayatullah2026yolo26}.}}{15}{figure.caption.12}%
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Inferência do Modelo~3 sobre imagem das vinhas de Palmela (\textit {threshold} = 16\%). Sarmentos (ciano), gomos (roxo), objetos (vermelho). Os sarmentos atingem confiança até 91\%; os gomos surgem apenas com confiança de 16--26\%, indicando que a classe está a ser aprendida mas requer mais dados.}}{23}{figure.caption.21}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Exemplos de erros típicos e deteção correta no Modelo~2 (imagens a inserir após conclusão do treino final).}}{25}{figure.caption.19}%
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Inferência do Modelo~3 (threshold = 16\%). Os sarmentos (ciano) são detetados com confiança até 91\%; os gomos (roxo) surgem com confiança de 16--26\%; um obstáculo/poste é detetado a vermelho com 71\%.}}{27}{figure.caption.24}%
 \addvspace {10\p@ }

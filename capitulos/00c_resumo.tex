@@ -18,13 +18,13 @@ Inteligente (CEDRI)}, entre março e julho de 2026. O tema central é a
 técnicas de visão computacional e aprendizagem profunda (\textit{deep
 learning}).
 
-Durante o estágio foram desenvolvidas duas abordagens complementares. A
-primeira baseou-se no dataset público \textbf{Segmentation-Vineyard-2}~\cite{vinya2024segvineyard}
+Durante o estágio foram desenvolvidos três modelos progressivos. O primeiro
+baseou-se no dataset público \textbf{Segmentation-Vineyard-2}~\cite{vinya2024segvineyard}
 (origem espanhola), que continha anotações de \textit{sarmento} e
 \textit{tronco} — tendo sido adicionadas manualmente as anotações de
-\textit{gomo} pelo estagiário. A segunda abordagem,
-e mais desafiante, utilizou imagens retiradas de vídeos captados nas vinhas
-de Palmela, em condições próximas de um sistema robótico real de corte.
+\textit{gomo} pelo estagiário. Os modelos seguintes incorporaram imagens
+retiradas de vídeos captados nas vinhas de Palmela, em condições próximas
+de um sistema robótico real de corte.
 Estas imagens apresentam elevada complexidade visual, com oclusões, planos
 de fundo densos (outras videiras, árvores, postes e arames), múltiplos
 elementos em cena e variações de iluminação. Para lidar com essa complexidade,
@@ -33,16 +33,17 @@ foram anotadas quatro classes de objetos: \textit{gomos}, \textit{sarmentos},
 
 O modelo de deteção selecionado foi o \textbf{YOLO26 Nano}~\cite{hidayatullah2026yolo26},
 pela sua eficiência computacional, inferência \textit{NMS-free} e adequação a sistemas
-embebidos. O processo de anotação foi realizado na plataforma
-\textbf{Roboflow}, tendo sido processadas aproximadamente 400~imagens até ao
-momento da elaboração deste relatório, com previsão de expansão do dataset.
+embebidos. O processo de anotação e treino foi realizado na plataforma
+\textbf{Roboflow}. O Modelo~2 (400 imagens base, 772 após \textit{data
+augmentation}) obteve mAP@50 de 48,8\%. O Modelo~3 (938 imagens após
+augmentation) obteve mAP@50 de 43,7\% e Precisão de 57,3\%, com os gomos
+a surgir nas inferências a limiares de confiança de 16--26\%.
 
-Os resultados obtidos até à data demonstram que é possível detetar gomos em
-condições controladas, mas evidenciam também que a complexidade das cenas
-reais exige um esforço de dados e modelação considerável, superior ao que pode
-ser alcançado num único semestre. As lições aprendidas e os resultados
-preliminares constituem, contudo, uma base sólida para trabalhos futuros de
-maior escala.
+Os resultados obtidos evidenciam que a deteção de gomos em cenas reais
+é um problema exigente, com a complexidade visual a requerer volumes de
+dados superiores ao que pode ser alcançado num único semestre. As lições
+aprendidas e os resultados dos três modelos constituem uma base sólida
+para trabalhos futuros de maior escala.
 
 \vspace{1em}
 \noindent\textbf{Palavras-chave:} visão computacional, \textit{deep learning},
@@ -69,29 +70,29 @@ July 2026. The central theme is the \textbf{automatic detection and
 classification of buds on grapevines} using computer vision and deep learning
 techniques.
 
-Two complementary approaches were developed during the internship. The first
-was based on a publicly available Spanish dataset, providing an initial
-training base with higher annotation quality. The second, more challenging
-approach used frames extracted from videos captured in the vineyards of
-Palmela, under conditions close to those of a real robotic pruning system.
+Three progressive models were developed during the internship. The first was
+based on the publicly available \textit{Segmentation-Vineyard-2} Spanish
+dataset, to which bud annotations were manually added. Subsequent models
+incorporated frames extracted from videos captured in the Palmela vineyards,
+under conditions close to those of a real robotic pruning system.
 These images exhibit high visual complexity, including occlusions, dense
 backgrounds (other vines, trees, poles and wires), multiple elements in the
-scene and lighting variations. To handle this complexity, four object classes
-were annotated: \textit{buds}, \textit{canes (sarmentos)}, \textit{trunks}
+scene and lighting variations. Four object classes were annotated:
+\textit{buds}, \textit{canes (sarmentos)}, \textit{trunks}
 and \textit{objects} (wires, poles and other structural elements).
 
 The selected detection model was \textbf{YOLO26 Nano}~\cite{hidayatullah2026yolo26},
-chosen for its computational efficiency, NMS-free inference and suitability for embedded systems.
-Annotation was performed on the \textbf{Roboflow} platform; approximately
-400~images had been processed by the time this report was written, with
-dataset expansion planned.
+chosen for its computational efficiency, NMS-free inference and suitability
+for embedded systems. Annotation and training were performed on the
+\textbf{Roboflow} platform. Model~2 (400 base images, expanded to 772 by
+data augmentation) achieved a mAP@50 of 48.8\%. Model~3 (938 images after
+augmentation) achieved mAP@50 of 43.7\% and Precision of 57.3\%, with buds
+appearing in inferences at confidence thresholds of 16--26\%.
 
-Results obtained to date demonstrate that bud detection is feasible under
-controlled conditions, while also highlighting that the complexity of
-real-world scenes requires a data collection and modelling effort beyond
-what can be accomplished in a single semester. Nevertheless, the lessons
-learned and preliminary results provide a solid foundation for future,
-larger-scale work.
+Results demonstrate that bud detection in real vineyard scenes is a
+challenging problem. The three models developed establish a solid methodological
+foundation and provide a realistic assessment of the data volumes required
+for a production-grade system.
 
 \vspace{1em}
 \noindent\textbf{Keywords:} computer vision, deep learning, YOLO26, object

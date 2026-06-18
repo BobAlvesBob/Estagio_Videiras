@@ -71,7 +71,7 @@ Palmela no estado atual.
     Classes anotadas           & 4 (gomo, sarmento, tronco, objeto) \\
     Ferramenta de anotação     & Roboflow \\
     Formato de exportação      & YOLO (TXT + \texttt{data.yaml}) \\
-    Divisão treino/val/teste   & 70\% / 20\% / 10\% (aproximado) \\
+    Divisão treino/val/teste   & 70\% / 20\% / 10\% \\
     \bottomrule
   \end{tabularx}
 \end{table}
@@ -334,6 +334,7 @@ O processo de treino na plataforma segue os seguintes passos:
     Modelo base              & YOLO26 Nano (COCO) \\
     Épocas (\texttt{epochs}) & 100 \\
     Tamanho de imagem        & 640 \\
+    Divisão treino/val/teste & 70\% / 20\% / 10\% \\
     Pesos exportados         & \texttt{best.pt} (formato PyTorch) \\
     \bottomrule
   \end{tabular}
