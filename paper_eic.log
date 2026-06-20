@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.6.13)  18 JUN 2026 15:20
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.6.13)  20 JUN 2026 16:07
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -859,7 +859,7 @@ File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 (paper_eic.aux
 Package babel Info: 'portuguese' activates 'portuges' shorthands.
-(babel)             Reported on input line 9.
+(babel)             Reported on input line 11.
 )
 \openout1 = `paper_eic.aux'.
 
@@ -1051,7 +1051,7 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <6> on input line 84.
 LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 9
-0.
+1.
 
 (C:\Users\alves\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
@@ -1064,71 +1064,70 @@ Package microtype Info: Loading generic protrusion settings for font family
 
 {C:/Users/alves/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/alve
 s/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ec.enc}{C:/Users/alves/Ap
-pData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-rm.enc}] [2] [3{C:/Users/alve
-s/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathsy.enc}]
-<imagens/videiras_palmela.jpg, id=113, 2168.1pt x 3854.4pt>
+pData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-rm.enc}{C:/Users/alves/AppDat
+a/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathsy.enc}] [2] [3] [4]
+<imagens/videiras_palmela.jpg, id=105, 2168.1pt x 3854.4pt>
 File: imagens/videiras_palmela.jpg Graphic file (type jpg)
 <use imagens/videiras_palmela.jpg>
-Package pdftex.def Info: imagens/videiras_palmela.jpg  used on input line 289.
+Package pdftex.def Info: imagens/videiras_palmela.jpg  used on input line 313.
 (pdftex.def)             Requested size: 213.96529pt x 380.34583pt.
-<imagens/videiras_anotadas.png, id=114, 350.81062pt x 628.59843pt>
+<imagens/videiras_anotadas.png, id=106, 350.81062pt x 628.59843pt>
 File: imagens/videiras_anotadas.png Graphic file (type png)
 <use imagens/videiras_anotadas.png>
-Package pdftex.def Info: imagens/videiras_anotadas.png  used on input line 294.
+Package pdftex.def Info: imagens/videiras_anotadas.png  used on input line 318.
 
 (pdftex.def)             Requested size: 213.96529pt x 383.40611pt.
-<imagens/Classes_videira_anotada.png, id=116, 231.86626pt x 249.93375pt>
-File: imagens/Classes_videira_anotada.png Graphic file (type png)
-<use imagens/Classes_videira_anotada.png>
-Package pdftex.def Info: imagens/Classes_videira_anotada.png  used on input lin
-e 301.
-(pdftex.def)             Requested size: 295.90588pt x 318.9912pt.
- [4]
-Overfull \vbox (70.1891pt too high) has occurred while \output is active []
-
-
-[5 <./imagens/videiras_palmela.jpg> <./imagens/videiras_anotadas.png> <./imagen
-s/Classes_videira_anotada.png>]
+ [5 <./imagens/videiras_palmela.jpg> <./imagens/videiras_anotadas.png>]
 LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 3
-16.
+47.
 
 (C:\Users\alves\AppData\Local\Programs\MiKTeX\tex/latex/lm\ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-<imagens/YOLOV26_ARCH.jpg, id=131, 803.0pt x 1003.75pt>
+<imagens/YOLOV26_ARCH.jpg, id=118, 803.0pt x 1003.75pt>
 File: imagens/YOLOV26_ARCH.jpg Graphic file (type jpg)
 <use imagens/YOLOV26_ARCH.jpg>
-Package pdftex.def Info: imagens/YOLOV26_ARCH.jpg  used on input line 333.
+Package pdftex.def Info: imagens/YOLOV26_ARCH.jpg  used on input line 364.
 (pdftex.def)             Requested size: 432.48051pt x 540.60786pt.
  [6{C:/Users/alves/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ts1.enc}
-] [7 <./imagens/YOLOV26_ARCH.jpg>] [8]
-<imagens/resultado_v3.png, id=155, 888.31876pt x 611.28375pt>
+] [7 <./imagens/YOLOV26_ARCH.jpg>]
+<imagens/modelo1.png, id=139, 295.1025pt x 525.46312pt>
+File: imagens/modelo1.png Graphic file (type png)
+<use imagens/modelo1.png>
+Package pdftex.def Info: imagens/modelo1.png  used on input line 439.
+(pdftex.def)             Requested size: 273.14923pt x 486.38254pt.
+ [8] [9 <./imagens/modelo1.png>] [10]
+<imagens/resultado_v3.png, id=161, 888.31876pt x 611.28375pt>
 File: imagens/resultado_v3.png Graphic file (type png)
 <use imagens/resultado_v3.png>
-Package pdftex.def Info: imagens/resultado_v3.png  used on input line 440.
+Package pdftex.def Info: imagens/resultado_v3.png  used on input line 527.
 (pdftex.def)             Requested size: 373.3035pt x 256.87733pt.
- [9 <./imagens/resultado_v3.png>] [10]
+ [11 <./imagens/resultado_v3.png>] [12]
+Overfull \hbox (14.1699pt too wide) in paragraph at lines 623--628
+[][]\T1/lmr/m/n/12 (-20) 10.54499/UID/05757/2025[][]) e UID/PRR/05757/2025 (DOI
+: [][]10.54499/UID/PRR/05757/2025[][]);
+ []
+
 Package microtype Info: Character `029' is missing
 (microtype)             in font `T1/lmr/m/sc/12'.
 (microtype)             Ignoring protrusion settings for this character.
- [11]
-[12] (paper_eic.aux)
+[13] [14] (paper_eic.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
  ***********
 Package rerunfilecheck Info: File `paper_eic.out' has not changed.
-(rerunfilecheck)             Checksum: B15707C4DA9B4056794F38724A434C1F;3263.
+(rerunfilecheck)             Checksum: EF398D75EC55A22F24035CF173002408;2127.
 Package logreq Info: Writing requests to 'paper_eic.run.xml'.
 \openout1 = `paper_eic.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 26307 strings out of 467871
- 457430 string characters out of 5418376
- 1358631 words of memory out of 5000000
+ 26325 strings out of 467871
+ 457530 string characters out of 5418376
+ 1359017 words of memory out of 5000000
  54613 multiletter control sequences out of 15000+600000
- 711737 words of font info for 191 fonts, out of 8000000 for 9000
+ 712759 words of font info for 199 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  75i,12n,83p,1204b,1634s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/alves/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx10.pf
@@ -1144,9 +1143,9 @@ b><C:/Users/alves/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr8.pfb>
 <C:/Users/alves/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt10.pfb>
 <C:/Users/alves/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt12.pfb>
 
-Output written on paper_eic.pdf (12 pages, 5360310 bytes).
+Output written on paper_eic.pdf (14 pages, 6012366 bytes).
 PDF statistics:
- 261 PDF objects out of 1000 (max. 8388607)
- 47 named destinations out of 1000 (max. 500000)
- 44186 words of extra memory for PDF output out of 51595 (max. 10000000)
+ 271 PDF objects out of 1000 (max. 8388607)
+ 49 named destinations out of 1000 (max. 500000)
+ 44170 words of extra memory for PDF output out of 51595 (max. 10000000)
 

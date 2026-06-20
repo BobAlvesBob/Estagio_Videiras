@@ -76,18 +76,22 @@
 
   \vspace{0.8em}
 
-  {\large Robson Alexander Alves$^{1}$, João Mendes$^{1}$,
-          Inês Sena$^{1}$, Maurício Morais$^{1}$}
+  {\large Robson Alexander Alves$^{1}$, Inês Sena$^{1}$,
+          João Mendes$^{1}$, Maurício Morais$^{1}$}
 
   \vspace{0.4em}
 
-  {\small $^{1}$Centro de Investigação em Digitalização e Robótica
-  Inteligente (CEDRI), Instituto Politécnico de Bragança (IPB),
-  Bragança, Portugal}
+  {\small $^{1}$Research Centre in Digitalization and Intelligent Robotics
+  (CeDRI), Laboratório para a Sustentabilidade e Tecnologia em Regiões de
+  Montanha (SusTEC), Instituto Politécnico de Bragança, Campus de Santa
+  Apolónia, 5300-253 Bragança, Portugal}
 
   \vspace{0.2em}
 
-  {\small \texttt{a67712@alunos.ipb.pt}}
+  {\small \texttt{a67712@alunos.ipb.pt} $\cdot$
+          \texttt{ines.sena@ipb.pt} $\cdot$
+          \texttt{joao.cmendes@ipb.pt} $\cdot$
+          \texttt{mauricio@ipb.pt}}
 \end{center}
 
 \vspace{1em}
@@ -104,17 +108,20 @@ artigo descreve o desenvolvimento de um sistema de deteção automática de
 gomos em videiras, baseado no modelo \textit{YOLO26 Nano} e treinado sobre
 dois datasets distintos na plataforma Roboflow. Foram desenvolvidos três modelos incrementais: o primeiro utilizou o
 dataset público \textit{Segmentation-Vineyard-2}, de origem espanhola,
-ao qual foram adicionadas manualmente anotações da classe \textit{gomo} —
+ao qual foram adicionadas manualmente anotações da classe \textit{gomo},
 ausente no dataset original. Os modelos seguintes combinam estas imagens
 com frames captados em vinhas da região de Palmela, Portugal, em condições
 próximas de um robô de poda real. Foram definidas quatro classes de
 anotação com propósitos robóticos específicos: \textit{gomo} (pontos de
 corte), \textit{sarmento} (guia estrutural), \textit{tronco} (navegação)
-e \textit{objeto} (obstáculos a evitar). O Modelo~1 (300 imagens, 3
-classes) obteve mAP@50 de 48,8\% e F1 de 53,5\%. O Modelo~3, treinado
-sobre 938 imagens com quatro classes em condições de campo reais, obteve
-mAP@50 de 43,7\%, Precisão de 57,3\% e Recall de 40,5\%, com os gomos a
-surgir nas inferências a limiares de confiança de 16\%, indicando que a
+e \textit{objeto} (obstáculos a evitar). O Modelo~1 (300 imagens base, expandidas a 775 por \textit{data augmentation},
+3 classes) obteve mAP@50 de 49,5\% e F1 de 57,0\%. O Modelo~2 (322 imagens
+base, 772 após augmentation, 4 classes) obteve mAP@50 de 48,8\% e F1 de
+53,5\%, incorporando as imagens de Palmela e a classe \textit{objeto}. O
+Modelo~3, treinado sobre 938 imagens geradas por \textit{data augmentation}
+a partir de 394 imagens base com quatro classes em condições de campo reais,
+obteve mAP@50 de 43,7\%, Precisão de 57,3\% e Recall de 40,5\%, com os gomos
+a surgir nas inferências a limiares de confiança de 16\%, indicando que a
 classe está a ser aprendida mas requer expansão do dataset.
 \end{abstract}
 
@@ -133,7 +140,7 @@ A viticultura é uma das atividades agrícolas com maior relevância económica
 em Portugal e na Europa. A poda da videira, realizada tipicamente no inverno
 e início da primavera, é uma das operações culturais mais exigentes em mão
 de obra e requer operários experientes capazes de identificar os gomos
-produtivos e determinar os pontos de corte adequados.
+produtivos e determinar os pontos de corte adequados~\cite{botterill2017robot}.
 
 A mecanização desta operação exige que sistemas robóticos percebam e
 interpretem a estrutura visual complexa de uma videira em ambiente real,
@@ -157,38 +164,55 @@ replicável de construção de dataset e treino de modelos.
 %--------------------------------------------------------------------------
 \section{Trabalhos Relacionados}
 
-\subsection{Visão Computacional em Viticultura}
-
 A aplicação de visão computacional à viticultura tem vindo a crescer
-rapidamente. Santos \textit{et al.}~\cite{santos2020grape} e Nuske
-\textit{et al.}~\cite{nuske2011estimating} utilizaram redes neuronais
-para estimativa do rendimento das vinhas por contagem de cachos,
-identificando as oclusões e a variabilidade de cor como desafios principais.
+rapidamente, impulsionada pela necessidade de automatizar tarefas de elevada
+exigência laboral como a estimativa de rendimento e a poda.
 
-A identificação da estrutura esquelética da videira — tronco, cordões e
-sarmentos — foi explorada por Kicherer \textit{et
-al.}~\cite{kicherer2015automatic} e Majeed \textit{et
-al.}~\cite{majeed2020deep}, demonstrando que a segmentação dos elementos
-estruturais melhora a robustez da localização dos pontos de corte.
-Botterill \textit{et al.}~\cite{botterill2017robot} desenvolveram um
-sistema robótico de poda que inclui deteção de gomos com câmeras RGB e de
-profundidade.
+Santos \textit{et al.}~\cite{santos2020grape} propuseram um sistema de
+deteção, segmentação e rastreamento de cachos de uva baseado em redes
+neuronais profundas (Mask R-CNN), aplicado a imagens RGB capturadas em
+vinhas de \textit{Cabernet Sauvignon} no Brasil. O sistema combinava
+deteção de instâncias em imagens individuais com associação 3D entre
+frames consecutivos de vídeo, permitindo contar e rastrear cachos ao longo
+do percurso do robô. Os autores identificaram a oclusão severa e a
+iluminação solar direta como as principais fontes de degradação do
+desempenho.
 
-\subsection{Modelos de Deteção de Objetos}
+Nuske \textit{et al.}~\cite{nuske2011estimating} desenvolveram uma
+\textit{pipeline} de estimativa de produção em vinhas da Califórnia
+baseada em câmeras monoculares. O método utilizava um modelo de
+reflectância para detetar bagas individualmente e agrupá-las em cachos,
+produzindo mapas de densidade de produção georreferenciados. Foram
+testadas múltiplas castas com taxas de deteção próximas de 88\% em
+condições controladas, tendo a variabilidade de iluminação e o fundo
+denso sido apontados como os principais desafios em condições de campo.
 
-Os modelos da família YOLO (\textit{You Only Look Once})~\cite{redmon2016you}
-tornaram-se referência para deteção em tempo real, combinando velocidade e
-precisão numa única passagem pela rede. O YOLO26~\cite{hidayatullah2026yolo26},
-a versão mais recente, introduz inferência \textit{End-to-End NMS-free}
-(sem \textit{Non-Maximum Suppression}), o otimizador MuSGD e o
-\textit{Small-Target-Aware Label Assignment} (STAL), obtendo um ganho de
-43\% na velocidade em modo CPU face ao YOLOv8, o que o torna adequado para
-sistemas robóticos de campo.
+A identificação da estrutura esquelética da videira, incluindo tronco, cordões e
+sarmentos, foi explorada por Kicherer \textit{et
+al.}~\cite{kicherer2015automatic} com a plataforma \textit{BreedVision},
+um sistema multi-sensor (câmeras RGB, NIR, térmica e \textit{scanner} 3D
+a laser) montado num robô de campo para análise fenotípica de videiras em
+programas de melhoramento na Universidade de Geisenheim, Alemanha. O
+sistema media automaticamente o tamanho das bagas, a compacidade dos
+cachos e outras características morfológicas, mas a sua complexidade de
+instalação e o custo computacional limitavam a aplicação em tempo real.
+Majeed \textit{et al.}~\cite{majeed2020deep} utilizaram uma rede U-Net
+modificada para segmentação semântica de macieiras em armações de arame em
+pomares da Nova Zelândia, com o objetivo de guiar robots de formação de
+árvores. O estudo demonstrou que a segmentação dos elementos estruturais
+melhora a robustez da localização dos pontos de intervenção, mas sublinhou
+a necessidade de re-treino para cada variedade e configuração de armação.
 
-A plataforma Roboflow~\cite{roboflow2020} tem emergido como ferramenta
-de referência para anotação, gestão de versões e treino de modelos em
-domínios agrícolas, combinando interface de anotação manual com
-funcionalidades de \textit{data augmentation} e treino na nuvem.
+Botterill \textit{et al.}~\cite{botterill2017robot} desenvolveram um dos
+primeiros sistemas robóticos completos de poda de videiras, testado em
+condições reais numa vinha da Universidade de Lincoln, Nova Zelândia. O
+sistema utilizava câmeras RGB-D (\textit{Microsoft Kinect}) para
+reconstrução 3D da estrutura da videira, extração do esqueleto e
+localização automática dos gomos e pontos de corte. O robô demonstrou a
+viabilidade da abordagem em campo, mas o tempo de processamento por videira
+(vários segundos) e a sensibilidade do sensor RGB-D a condições de
+iluminação exterior foram identificados como limitações para implementação
+industrial.
 
 %--------------------------------------------------------------------------
 % 3. METODOLOGIA
@@ -225,7 +249,7 @@ Vídeos captados em vinhas da região de Palmela em março de 2026, com
 câmera de \textit{smartphone} a uma taxa de 2~fps, simulando o trajeto de
 um robô de poda. Os vídeos foram importados no Roboflow, que realizou a
 extração automática dos \textit{frames}. Até à data, foram anotadas
-aproximadamente 100 imagens com as quatro classes completas
+aproximadamente 300 imagens com as quatro classes completas
 (\textit{gomo}, \textit{sarmento}, \textit{tronco}, \textit{objeto}).
 
 Todos os datasets foram divididos nas proporções \textbf{70\% treino /
@@ -241,9 +265,9 @@ composição de cada versão do dataset.
     \textbf{Modelo} & \textbf{Base SVY-2} & \textbf{Base Palmela}
                     & \textbf{Base total} & \textbf{Após augmentation} \\
     \midrule
-    Modelo 1 & 300 & 0   & 300  & $\approx$775 \\
-    Modelo 2 & 300 & 100 & 400  & 772 \\
-    Modelo 3 & 300 & 100+ & 400+ & 938 \\
+    Modelo 1 & 300 & 0   & 300  & 775 \\
+    Modelo 2 & 300 & 22  & 322  & 772 \\
+    Modelo 3 & 300 & 94  & 394  & 938 \\
     \bottomrule
   \end{tabularx}
 \end{table}
@@ -276,7 +300,7 @@ negativos sistemáticos no treino.
 As principais dificuldades encontradas na anotação foram: (i) \textit{lentidão
 da plataforma} quando uma imagem acumula mais de 300 \textit{bounding boxes},
 situação comum nas imagens de Palmela; (ii) \textit{ausência de seleção
-automática para sarmentos} — a ferramenta \textit{Auto-label} do Roboflow
+automática para sarmentos}, sendo que a ferramenta \textit{Auto-label} do Roboflow
 mostrou-se ineficaz em estruturas finas e sobrepostas, exigindo anotação
 inteiramente manual.
 
@@ -296,18 +320,25 @@ e após anotação, e a distribuição de instâncias por classe.
   \end{subfigure}
 
   \vspace{0.5em}
-  \begin{subfigure}[b]{0.65\textwidth}
-    \centering
-    \includegraphics[width=\textwidth]{imagens/Classes_videira_anotada.png}
-    \caption{Distribuição de instâncias por classe}
-  \end{subfigure}
   \caption{Exemplo de imagem anotada das vinhas de Palmela.}
   \label{fig:anotacao}
 \end{figure}
 
-\subsection{Arquitetura do Modelo — YOLO26 Nano}
+As anotações revelam uma densidade de instâncias muito elevada: em média,
+cada imagem das vinhas de Palmela contém cerca de \textbf{300 etiquetas}
+(\textit{labels}), distribuídas principalmente pelas classes \textit{gomo}
+e \textit{sarmento}. A título de exemplo, a imagem representada na
+Figura~\ref{fig:anotacao} contém 329 anotações — 161 gomos, 141 sarmentos,
+19 objetos e 8 troncos. Esta densidade excede largamente a média de datasets
+de deteção de objetos convencionais e constitui um dos principais desafios
+técnicos do projeto.
 
-O modelo selecionado foi o \textit{YOLO26 Nano}~\cite{hidayatullah2026yolo26},
+\subsection{Modelos}
+
+Os modelos da família YOLO (\textit{You Only Look Once})~\cite{redmon2016you}
+tornaram-se referência para deteção em tempo real, combinando velocidade e
+precisão numa única passagem pela rede. O modelo selecionado foi o
+\textit{YOLO26 Nano}~\cite{hidayatullah2026yolo26},
 desenvolvido pela Ultralytics e lançado em janeiro de 2026 com o lema
 \textit{"Built End-to-End. Built for the Edge"}. As principais inovações
 relevantes para este trabalho são:
@@ -318,7 +349,7 @@ relevantes para este trabalho são:
     de 43\% na velocidade em modo CPU;
   \item \textit{STAL} (\textit{Small-Target-Aware Label Assignment}):
     garante um mínimo de quatro âncoras para objetos com dimensão inferior
-    a 8$\times$8~px — crucial para gomos de pequena dimensão;
+    a 8$\times$8~px, crucial para gomos de pequena dimensão;
   \item \textit{PSABlock} no \textit{neck}: mecanismo de atenção global
     que melhora a representação de características sem custo computacional
     elevado;
@@ -339,6 +370,10 @@ A Figura~\ref{fig:arch} apresenta o diagrama de arquitetura do YOLO26.
 
 \subsection{Procedimento de Treino}
 
+A plataforma Roboflow~\cite{roboflow2020} tem emergido como ferramenta
+de referência para anotação, gestão de versões e treino de modelos em
+domínios agrícolas, combinando interface de anotação manual com
+funcionalidades de \textit{data augmentation} e treino na nuvem.
 O treino foi realizado na plataforma \textit{Roboflow Train} (nuvem),
 dispensando infraestrutura local com GPU. A Tabela~\ref{tab:treino} resume
 a configuração utilizada em ambos os modelos.
@@ -365,23 +400,75 @@ a configuração utilizada em ambos os modelos.
 %--------------------------------------------------------------------------
 \section{Resultados e Discussão}
 
-\subsection{Modelo 1 — \textit{Segmentation-Vineyard-2} (300 imagens base)}
+\subsection{Modelo 1 — \textit{Segmentation-Vineyard-2}}
 
 O Modelo~1 foi treinado exclusivamente sobre as 300 imagens do
 \textit{Segmentation-Vineyard-2}, com as anotações de \textit{gomo}
-adicionadas manualmente, perfazendo três classes. O Roboflow expandiu
-este conjunto para aproximadamente 775 imagens através de \textit{data
-augmentation}. Este modelo serviu para validar a \textit{pipeline} técnica
-com um dataset de domínio único (vinhas espanholas), antes da introdução
-de imagens de Palmela. Os sarmentos foram detetados com elevada confiança
-(até 97\%) e os troncos com confiança acima de 83\%, confirmando que o
-YOLO26 Nano aprende a estrutura visual das videiras mesmo com datasets
-pequenos.
+adicionadas manualmente, perfazendo três classes (\textit{gomo},
+\textit{sarmento}, \textit{tronco}). Representa o primeiro treino com
+anotações de \textit{sarmento} — versões experimentais anteriores (março
+de 2026, apenas \textit{gomos}, $\sim$41 imagens) produziram resultados
+insatisfatórios e não são consideradas neste estudo. O Roboflow expandiu
+este conjunto para exactamente 775 imagens através de \textit{data augmentation}.
+O objetivo deste modelo foi estabelecer uma \textit{baseline} formal sobre
+o dataset público, isolando a contribuição das imagens de Palmela nos
+modelos subsequentes. A Tabela~\ref{tab:resultados_m1} apresenta as
+métricas obtidas no conjunto de validação.
 
-\subsection{Modelo 2 — SVY-2 + Palmela (400 imagens base, 772 augmentadas)}
+\begin{table}[H]
+  \centering
+  \caption{Métricas do Modelo 1 — conjunto de validação}
+  \label{tab:resultados_m1}
+  \begin{tabular}{lc}
+    \toprule
+    \textbf{Métrica} & \textbf{Valor} \\
+    \midrule
+    mAP@50           & 49,5\% \\
+    Precisão         & 64,2\% \\
+    Recall           & 51,3\% \\
+    F1               & 57,0\% \\
+    \bottomrule
+  \end{tabular}
+\end{table}
 
-O Modelo~2 incorpora as 100 imagens de Palmela ao dataset do Modelo~1,
-perfazendo 400 imagens base com quatro classes; o Roboflow gerou 772
+A Figura~\ref{fig:resultado_m1} mostra uma inferência do Modelo~1 com
+\textit{confidence threshold} de 12\%.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.60\textwidth]{imagens/modelo1.png}
+  \caption{Inferência do Modelo~1 (\textit{threshold} = 12\%). Troncos
+           (vermelho), sarmentos (ciano), gomos (roxo). O modelo identifica
+           corretamente vários gomos nas posições de inserção nos sarmentos,
+           mas classifica incorretamente múltiplos galhos como troncos e
+           sub-deteta os sarmentos.}
+  \label{fig:resultado_m1}
+\end{figure}
+
+A análise qualitativa da inferência revela um comportamento coerente com
+um modelo treinado num dataset de domínio único (vinhas espanholas) e
+avaliado numa imagem de Palmela:
+\begin{itemize}[noitemsep]
+  \item \textit{Gomos}: quatro instâncias detetadas com confiança de
+    14--15\%, correctamente posicionadas nas inserções dos sarmentos,
+    resultado promissor para um primeiro modelo com apenas três classes;
+  \item \textit{Sarmentos}: apenas dois detetados (38\% e 82\%), reflectindo
+    a diferença visual entre os sarmentos das imagens de treino espanholas
+    e os de Palmela;
+  \item \textit{Troncos}: múltiplas deteções incorrectas sobre galhos e
+    sarmentos, com caixas sobrepostas, indicando que o modelo aprendeu
+    a associar estruturas verticais em geral à classe \textit{tronco} em
+    vez de distinguir o eixo lenhoso principal.
+\end{itemize}
+
+Estes resultados motivaram a introdução da classe \textit{objeto} e a
+inclusão de imagens de Palmela nos modelos seguintes, de modo a melhorar
+a distinção entre \textit{tronco} e \textit{sarmento} em contexto real.
+
+\subsection{Modelo 2 — SVY-2 + Palmela}
+
+O Modelo~2 incorpora 22 imagens de Palmela ao dataset do Modelo~1,
+perfazendo 322 imagens base com quatro classes; o Roboflow gerou 772
 imagens para treino através de augmentation. A Tabela~\ref{tab:resultados}
 apresenta as métricas obtidas no conjunto de validação.
 
@@ -409,7 +496,7 @@ precisão (54,3\%) e o recall (52,7\%) equilibrados indicam que o modelo
 distribui as dificuldades de forma homogénea entre falsos positivos e
 falsos negativos, sem enviesamento sistemático para nenhuma classe.
 
-\subsection{Modelo 3 — Dataset Expandido (400+ imagens base, 938 augmentadas)}
+\subsection{Modelo 3 — Dataset Expandido}
 
 O Modelo~3 representa o estado mais avançado do desenvolvimento, treinado
 sobre 938 imagens (geradas por augmentation a partir das imagens base
@@ -449,8 +536,8 @@ A inferência revela um comportamento que reflete a assimetria de dificuldade
 entre classes: os sarmentos são detetados com elevada confiança (até 91\%),
 pois são estruturas visualmente distintas e de grande dimensão; os gomos,
 em contraste, apenas surgem com \textit{threshold} abaixo de 16\%, o que
-indica que o modelo ainda está a calibrar a confiança nesta classe mais difícil.
-Este resultado é esperado — os gomos têm dimensão reduzida, apresentam
+indica que o modelo ainda está a calibrar a confiança nesta classe mais difícil,
+sendo que os gomos têm dimensão reduzida, apresentam
 variabilidade de forma e aparecem com frequências muito distintas entre
 imagens, tornando a aprendizagem mais lenta.
 
@@ -467,23 +554,28 @@ A Tabela~\ref{tab:comparacao} compara as três abordagens desenvolvidas.
     \textbf{Aspeto}        & \textbf{Modelo 1} & \textbf{Modelo 2} & \textbf{Modelo 3} \\
     \midrule
     Fontes                 & SVY-2             & SVY-2 + Palmela   & SVY-2 + Palmela \\
-    Imagens base           & $\approx$300      & $\approx$400      & $\approx$400+ \\
-    Imagens (aug.)         & $\approx$775      & 772               & 938 \\
+    Imagens base           & 300               & 322               & 394 \\
+    Imagens (aug.)         & 775               & 772               & 938 \\
     Classes                & 3                 & 4                 & 4 \\
-    mAP@50                 & ---               & 48,8\%            & 43,7\% \\
-    Precisão               & ---               & 54,3\%            & 57,3\% \\
-    Recall                 & ---               & 52,7\%            & 40,5\% \\
-    F1                     & ---               & 53,5\%            & 47,4\% \\
+    mAP@50                 & 49,5\%            & 48,8\%            & 43,7\% \\
+    Precisão               & 64,2\%            & 54,3\%            & 57,3\% \\
+    Recall                 & 51,3\%            & 52,7\%            & 40,5\% \\
+    F1                     & 57,0\%            & 53,5\%            & 47,4\% \\
     \bottomrule
   \end{tabularx}
 \end{table}
 
+A transição do Modelo~1 para o Modelo~2 mostra que a adição de imagens de
+Palmela e de uma quarta classe reduziu ligeiramente o mAP@50 de 49,5\% para
+48,8\%, mas manteve métricas globais semelhantes. O Modelo~1 destaca-se pela
+Precisão mais elevada (64,2\%), indicando menos falsos positivos, o que é
+coerente com um dataset de domínio único e mais homogéneo.
 A transição do Modelo~2 para o Modelo~3 evidencia um padrão esperado face
 à maior dificuldade do dataset expandido: o mAP@50 desce de 48,8\% para
 43,7\%, mas a Precisão sobe de 54,3\% para 57,3\%, indicando menos falsos
 positivos. A queda no Recall (de 52,7\% para 40,5\%) reflete a dificuldade
-de detetar gomos em imagens de Palmela com maior complexidade visual —
-o modelo detecta-os, mas a confiança não atinge o limiar convencional de
+de detetar gomos em imagens de Palmela com maior complexidade visual,
+dado que o modelo os deteta, mas a confiança não atinge o limiar convencional de
 50\%. A adição contínua de imagens de Palmela é o principal vetor de
 melhoria, prevendo-se que alcançar 2000--3000 imagens base resulte num
 salto significativo no Recall dos gomos.
@@ -496,17 +588,18 @@ salto significativo no Recall dos gomos.
 Este artigo apresentou o desenvolvimento iterativo de um sistema de deteção
 automática de gomos em videiras baseado no YOLO26 Nano, com aplicação a
 sistemas robóticos de poda mecanizada. Foram desenvolvidos três modelos
-progressivos, desde 300 a 938 imagens, evidenciando uma metodologia
-replicável de construção de dataset e treino incremental.
+progressivos, de 300 imagens base (775 após \textit{data augmentation})
+a 394 imagens base (938 após \textit{data augmentation}), evidenciando uma
+metodologia replicável de construção de dataset e treino incremental.
 
 O trabalho demonstrou que: (i) é possível adaptar um dataset público de
 sarmentos e troncos para incluir a deteção de gomos através de anotação
 manual; (ii) o YOLO26 Nano aprende a estrutura visual de videiras com
-datasets de dimensão reduzida, atingindo mAP@50 de 48,8\% no Modelo~2 e
-43,7\% no Modelo~3 (domínio mais difícil, 4 classes); (iii) a plataforma
+datasets de dimensão reduzida, atingindo mAP@50 de 49,5\% no Modelo~1,
+48,8\% no Modelo~2 e 43,7\% no Modelo~3 (domínio mais difícil, 4 classes); (iii) a plataforma
 Roboflow Train viabiliza o treino de modelos de qualidade sem infraestrutura
-local de GPU; (iv) a deteção de gomos em cenas reais é um problema exigente
-— os gomos surgem com confiança reduzida mesmo no Modelo~3, o que indica
+local de GPU; (iv) a deteção de gomos em cenas reais é um problema exigente,
+pois os gomos surgem com confiança reduzida mesmo no Modelo~3, o que indica
 que o volume de dados é ainda insuficiente para calibrar esta classe.
 
 As principais direções de trabalho futuro são: expansão do dataset de
@@ -520,11 +613,18 @@ de YOLO26-Seg para segmentação de instâncias de sarmentos.
 %--------------------------------------------------------------------------
 \section*{Agradecimentos}
 
-O autor agradece ao Instituto Politécnico de Bragança (IPB) e ao
-Centro de Investigação em Digitalização e Robótica Inteligente (CEDRI)
-pela infraestrutura e apoio disponibilizados, e a todos os colegas e
-investigadores que contribuíram com sugestões e discussões ao longo deste
-trabalho.
+O autor agradece ao \textit{Research Centre in Digitalization and
+Intelligent Robotics} (CeDRI) e ao \textit{Laboratório para a
+Sustentabilidade e Tecnologia em Regiões de Montanha} (SusTEC) do
+Instituto Politécnico de Bragança pela infraestrutura, orientação e apoio
+disponibilizados ao longo deste trabalho, bem como a todos os colegas e
+investigadores que contribuíram com sugestões e discussões.
+
+Este trabalho é financiado por fundos nacionais através da FCT, Fundação
+para a Ciência e a Tecnologia, I.P., no âmbito dos projetos: CeDRI,
+UID/05757/2025 (DOI: \href{https://doi.org/10.54499/UID/05757/2025}{10.54499/UID/05757/2025})
+e UID/PRR/05757/2025 (DOI: \href{https://doi.org/10.54499/UID/PRR/05757/2025}{10.54499/UID/PRR/05757/2025});
+SusTEC, LA/P/0007/2020 (DOI: \href{https://doi.org/10.54499/LA/P/0007/2020}{10.54499/LA/P/0007/2020}).
 
 %--------------------------------------------------------------------------
 % REFERÊNCIAS

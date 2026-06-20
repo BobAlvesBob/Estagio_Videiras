@@ -1,17 +1,17 @@
 [0] Config.pm:328> INFO - This is Biber 2.21
 [0] Config.pm:331> INFO - Logfile is 'paper_eic.blg'
-[179] biber-MSWIN64:342> INFO - === 
-[249] Biber.pm:421> INFO - Reading 'paper_eic.bcf'
-[421] Biber.pm:1002> INFO - Found 9 citekeys in bib section 0
-[442] Biber.pm:4487> INFO - Processing section 0
-[456] Biber.pm:4678> INFO - Looking for bibtex file 'referencias.bib' for section 0
-[562] bibtex.pm:1713> INFO - LaTeX decoding ...
-[587] bibtex.pm:1519> INFO - Found BibTeX data source 'referencias.bib'
-[767] UCollate.pm:68> INFO - Overriding locale 'pt-PT' defaults 'variable = shifted' with 'variable = non-ignorable'
-[767] UCollate.pm:68> INFO - Overriding locale 'pt-PT' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[767] Biber.pm:4307> INFO - Sorting list 'nyt/global//global/global/global' of type 'entry' with template 'nyt' and locale 'pt-PT'
-[767] Biber.pm:4313> INFO - No sort tailoring available for locale 'pt-PT'
-[797] bbl.pm:676> INFO - Writing 'paper_eic.bbl' with encoding 'UTF-8'
-[815] bbl.pm:779> INFO - Output to paper_eic.bbl
-[817] Biber.pm:132> WARN - legacy month field 'dec' in entry 'vinya2024segvineyard' is not an integer - this will probably not sort properly.
-[818] Biber.pm:134> INFO - WARNINGS: 1
+[172] biber-MSWIN64:342> INFO - === 
+[250] Biber.pm:421> INFO - Reading 'paper_eic.bcf'
+[491] Biber.pm:1002> INFO - Found 9 citekeys in bib section 0
+[511] Biber.pm:4487> INFO - Processing section 0
+[531] Biber.pm:4678> INFO - Looking for bibtex file 'referencias.bib' for section 0
+[654] bibtex.pm:1713> INFO - LaTeX decoding ...
+[685] bibtex.pm:1519> INFO - Found BibTeX data source 'referencias.bib'
+[835] UCollate.pm:68> INFO - Overriding locale 'pt-PT' defaults 'variable = shifted' with 'variable = non-ignorable'
+[835] UCollate.pm:68> INFO - Overriding locale 'pt-PT' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[835] Biber.pm:4307> INFO - Sorting list 'nyt/global//global/global/global' of type 'entry' with template 'nyt' and locale 'pt-PT'
+[836] Biber.pm:4313> INFO - No sort tailoring available for locale 'pt-PT'
+[853] bbl.pm:676> INFO - Writing 'paper_eic.bbl' with encoding 'UTF-8'
+[865] bbl.pm:779> INFO - Output to paper_eic.bbl
+[866] Biber.pm:132> WARN - legacy month field 'dec' in entry 'vinya2024segvineyard' is not an integer - this will probably not sort properly.
+[866] Biber.pm:134> INFO - WARNINGS: 1
